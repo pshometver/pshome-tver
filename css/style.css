@@ -74,7 +74,7 @@
 
 .header__banner-content {
     height: 400px;
-    background-image: url('../cdb76352-584f-4db0-bbd1-84ff09c6cf19.png);
+    background-image: url('../cdb76352-584f-4db0-bbd1-84ff09c6cf19.png');
     background-size: cover;
     position: relative;
     display: flex;
@@ -807,4 +807,5 @@
     -webkit-text-fill-color: transparent;
     font-weight: 700;
 }
+
 
