@@ -63,8 +63,6 @@
     height: 400px;
     overflow: hidden;
     position: relative;
-    background-image: url('../cdb76352-584f-4db0-bbd1-84ff09c6cf19.png');
-    background-size: cover;
 }
 .banner-img {
     width: 100%;
@@ -75,6 +73,8 @@
 }
 
 .header__banner-content {
+    background-image: url('../cdb76352-584f-4db0-bbd1-84ff09c6cf19.png');
+    background-size: cover;
     height: 400px;
     background-size: cover;
     position: relative;
@@ -808,6 +808,7 @@
     -webkit-text-fill-color: transparent;
     font-weight: 700;
 }
+
 
 
 
