@@ -73,7 +73,7 @@
 }
 
 .header__banner-content {
-    background-image: url('../venom.png');
+    background-image: url('../venom.webp');
     background-size: cover;
     height: 400px;
     background-size: cover;
@@ -84,6 +84,12 @@
     align-items: center;
 
     
+}
+/* Fallback for old browsers - PNG */
+@supports not (background-image: url('../venom.webp')) {
+    .header__banner-content {
+        background-image: url('../venom.png');
+    }
 }
 .header__banner-text{
     color: rgb(255, 255, 255);
@@ -808,6 +814,7 @@
     -webkit-text-fill-color: transparent;
     font-weight: 700;
 }
+
 
 
 
