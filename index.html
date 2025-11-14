@@ -16,7 +16,7 @@
     
     <link rel="preload" href="./images/venom.png" as="image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="icon" type="image/png" sizes="32x32" href="./favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -45,7 +45,11 @@
                                 <div class="container">
                                     <div class="header__top-inner">
                                         <a href="/" class="header__logo logo" aria-label="PSHOME - На главную">
-                                            <img src="logo.png" alt="Логотип PSHOME" width="40px">
+                                            <<picture>
+                                                <source srcset="images/logo.webp" type="image/webp">
+                                                <source srcset="images/logo.png" type="image/png">
+                                                <img src="images/logo.png" alt="PSHOME - Аренда PlayStation в Твери" width="40" height="40">
+                                            </picture>
                                             <span class="header__logo-text">PSHOME</span>
                                             
                                         </a>
@@ -573,6 +577,7 @@
 </body>
 
 </html>
+
 
 
 
