@@ -73,7 +73,7 @@
 }
 
 .header__banner-content {
-    background-image: url('../venom.webp');
+    background-image: url('../images/venom.webp');
     background-size: cover;
     height: 400px;
     background-size: cover;
@@ -814,6 +814,7 @@
     -webkit-text-fill-color: transparent;
     font-weight: 700;
 }
+
 
 
 
