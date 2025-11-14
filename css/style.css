@@ -86,9 +86,9 @@
     
 }
 /* Fallback for old browsers - PNG */
-@supports not (background-image: url('../venom.webp')) {
+@supports not (background-image: url('../images/venom.webp')) {
     .header__banner-content {
-        background-image: url('../venom.png');
+        background-image: url('../images/venom.png');
     }
 }
 .header__banner-text{
@@ -814,6 +814,7 @@
     -webkit-text-fill-color: transparent;
     font-weight: 700;
 }
+
 
 
 
