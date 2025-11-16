@@ -233,7 +233,7 @@ h1, h2, h3 {
 .price__img-ps5,
 .price__img-vr2 {
     transition: transform 0.5s ease;
-    transform-origin: center bottom; Увеличение от нижней части
+    transform-origin: center bottom;
 }
 
 .price__card:hover .price__img-ps4,
@@ -842,6 +842,7 @@ h1, h2, h3 {
     -webkit-text-fill-color: transparent;
     font-weight: 700;
 }
+
 
 
 
