@@ -86,7 +86,7 @@ h1, h2, h3 {
 }
 
 .header__banner-content {
-    background-image: url('../images/venom.webp');
+    background-image: url('/venom.png');
     background-size: cover;
     height: 400px;
     background-size: cover;
@@ -112,12 +112,11 @@ h1, h2, h3 {
     font-weight: bold;
 }
 .header__banner-button{
-    padding: 12px;
     background-color: yellow;
     border-radius: 20px;
     font-size: 12PX;
     font-weight: 700;
-    
+    padding: 12px 24px;
 }
 /* --------------------------------------- */
 
@@ -155,7 +154,7 @@ h1, h2, h3 {
 }
 .span{
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 1.3;
 }
 .header__icon-item:first-child {
@@ -181,7 +180,7 @@ h1, h2, h3 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0px 20px 20px 20px;
+    padding: 10px 20px 20px 20px;
     text-align: center;
     border-radius: 11px;
 }
@@ -224,24 +223,10 @@ h1, h2, h3 {
 .price__button{
     margin-top: 20px;
     padding: 12px 24px;
-    background-color:yellow;
     border-radius: 20px;
     font-size: 12PX;
     font-weight: 600;
 }
-.price__img-ps4,
-.price__img-ps5,
-.price__img-vr2 {
-    transition: transform 0.6s ease;
-    transform-origin: center bottom;
-}
-
-.price__card:hover .price__img-ps4,
-.price__card:hover .price__img-ps5,
-.price__card:hover .price__img-vr2 {
-    transform: scale(1.07);
-}
-
 /* ----------------------------------
  */
 .tittle__games{
@@ -279,9 +264,12 @@ h1, h2, h3 {
     /* border: 1px solid black; */
     margin-bottom: 140px;
 }
-
+.games__show-more{
+    transition: all 0.3s ease;
+    
+}
 .games__show-more:hover {
-    background:rgb(255, 238, 0);
+    background:#FFE135;
 }
 .games__game-name{
     text-align: center ;
@@ -399,7 +387,14 @@ h1, h2, h3 {
     font-size: 14px;
     color: #555;
     line-height: 1.4;
-    margin: 10px 0;
+}
+.modal__title-kid{
+    font-size: 14px;
+    margin-bottom: 30px;
+
+}
+.modal__form{
+    margin-top: 30px;
 }
 
 .form__checkbox input[type="checkbox"] {
@@ -485,21 +480,6 @@ h1, h2, h3 {
     font-size: 14px;
 }
 
-.form__input {
-    width: 100%;
-    padding: 12px 15px;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    font-size: 16px;
-    transition: all 0.3s ease;
-    background: white;
-}
-
-.form__input:focus {
-    outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-}
 
 .form__input:invalid {
     border-color: #ff6b6b;
@@ -527,7 +507,7 @@ h1, h2, h3 {
     border-radius: 20px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     width: 90%;
-    max-width: 450px;
+    max-width: 455px;
     position: relative;
     animation: modalShow 0.4s ease;
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -615,8 +595,8 @@ h1, h2, h3 {
 
 .form__input:focus {
     outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1), 0 4px 20px rgba(102, 126, 234, 0.2);
+    border-color: #FFD700; /* Золотой цвет */
+    box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2);
     transform: translateY(-2px);
 }
 
@@ -697,18 +677,19 @@ h1, h2, h3 {
 
 /* Стили кнопки */
 .form__button {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
+    background: linear-gradient(135deg, hsl(51, 100%, 50%) 0%, #FFD700 20%, hsl(39, 100%, 50%) 100%);
     padding: 18px 30px;
     border: none;
-    border-radius: 12px;
+    border-radius: 15px;
     font-size: 18px;
-    font-weight: 700;
+    font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
     position: relative;
     overflow: hidden;
+    letter-spacing: 1px;
+    
 }
 
 .form__button:hover {
@@ -821,6 +802,10 @@ h1, h2, h3 {
 .rental-image {
     flex-shrink: 0;
     width: 300px;
+    margin-bottom: 20px;
+}
+.marginb50{
+    margin-bottom: 50px;
 }
 
 .rental-img {
@@ -841,6 +826,19 @@ h1, h2, h3 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 700;
+}
+/* Анимация для изображений */
+.price__img-ps4,
+.price__img-ps5,
+.price__img-vr2 {
+    transition: transform 0.4s ease;
+    transform-origin: center bottom; Увеличение от нижней части
+}
+
+.price__card:hover .price__img-ps4,
+.price__card:hover .price__img-ps5,
+.price__card:hover .price__img-vr2 {
+    transform: scale(1.07);
 }
 .header__banner-button, .price__button {
     background: linear-gradient(135deg, #FFD700 0%, #FFD700 20%, #fda500 100%);
@@ -899,7 +897,7 @@ h1, h2, h3 {
     letter-spacing: 0.5px;
     
     /* Анимации как у вас */
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     overflow: hidden;
     
