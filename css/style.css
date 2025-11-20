@@ -86,7 +86,7 @@ h1, h2, h3 {
 }
 
 .header__banner-content {
-    background-image: url('images/venom.png');
+    background-image: url('../images/venom.png');
     background-size: cover;
     height: 400px;
     background-size: cover;
@@ -941,6 +941,7 @@ h1, h2, h3 {
 .contact__button-bot:hover::before {
     left: 100%;
 }
+
 
 
 
