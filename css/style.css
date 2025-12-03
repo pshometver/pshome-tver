@@ -236,7 +236,7 @@ h1, h2, h3 {
     text-align: center;
 }
 .games__game{
-    width: 260px;
+    width: 200px;
 }
 .games__game--hidden {
     display: none;
@@ -244,9 +244,10 @@ h1, h2, h3 {
 
 .games__container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-    /* margin-right: -20px; */
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: 1fr; /* Ключевое свойство */
+    gap: 20px; /* Единый отступ */
+    align-items: start; /* Выравнивание по верху */
 }
 
 .games__show-more {
@@ -941,6 +942,7 @@ h1, h2, h3 {
 .contact__button-bot:hover::before {
     left: 100%;
 }
+
 
 
 
