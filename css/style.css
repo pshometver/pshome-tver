@@ -237,11 +237,11 @@ h1, h2, h3 {
 }
 .games__game{
     width: 200px;
+    
 }
 .games__game--hidden {
     display: none;
 }
-
 .games__container {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -249,7 +249,6 @@ h1, h2, h3 {
     gap: 20px; /* Единый отступ */
     align-items: start; /* Выравнивание по верху */
 }
-
 .games__show-more {
     width: 100%;
     margin: 40px auto; /* автоматические отступы по бокам + отступ сверху */
@@ -277,6 +276,17 @@ h1, h2, h3 {
     margin-top: 7px;
     font-weight: 550;
     font-size: 18px;
+}
+.rdr{
+    width: 209px;
+}
+.games__game-photo { 
+    transition: all 0.3s ease;
+    /* box-shadow: 0 0px 5px rgba(68, 68, 65, 0.6); */
+}
+.games__game-photo:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
 }
 /* ===================================, */
 .title__ruls{
@@ -942,6 +952,7 @@ h1, h2, h3 {
 .contact__button-bot:hover::before {
     left: 100%;
 }
+
 
 
 
