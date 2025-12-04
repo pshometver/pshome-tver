@@ -307,11 +307,6 @@ h1, h2, h3 {
 .carta__item-one{
     display: flex;
 }
-.carta__number{
-    font-size: 150px;
-    font-weight: bold;
-    color: rgb(197, 196, 196) ;
-}
 .ruls__carta1{
     display: flex;
     /* justify-content: space-evenly; */
@@ -331,6 +326,35 @@ h1, h2, h3 {
 .test-3{
     margin-left: 10px;
 }
+/* Счетчик для первого списка */
+.ruls__carta {
+    counter-reset: list1;
+}
+
+/* Счетчик для второго списка, начинаем с 5 */
+.ruls__carta1 {
+    counter-reset: list2 4; /* 4 + 1 = 5 */
+}
+
+/* Цифра внутри .carta__item-one */
+.carta__item-one::before {
+    content: counter(list1); /* Для первого списка */
+    font-size: 150px;
+    font-weight: bold;
+    color: rgb(197, 196, 196);
+}
+
+/* Для второго списка используем другой счетчик */
+.ruls__carta1 .carta__item-one::before {
+    content: counter(list2);
+    counter-increment: list2;
+}
+
+/* Увеличиваем счетчик для первого списка */
+.ruls__carta .carta__item-one::before {
+    counter-increment: list1;
+}
+
 /* ------------------- */
 .contact__flex{
     display: flex;
@@ -952,6 +976,7 @@ h1, h2, h3 {
 .contact__button-bot:hover::before {
     left: 100%;
 }
+
 
 
 
