@@ -326,6 +326,9 @@ h1, h2, h3 {
 .test-3{
     margin-left: 10px;
 }
+.carta__item-two{
+    margin-top: 15px;
+}
 /* Счетчик для первого списка */
 .ruls__carta {
     counter-reset: list1;
@@ -339,7 +342,7 @@ h1, h2, h3 {
 /* Цифра внутри .carta__item-one */
 .carta__item-one::before {
     content: counter(list1); /* Для первого списка */
-    font-size: 150px;
+    font-size: 100px;
     font-weight: bold;
     color: rgb(197, 196, 196);
 }
@@ -976,6 +979,7 @@ h1, h2, h3 {
 .contact__button-bot:hover::before {
     left: 100%;
 }
+
 
 
 
