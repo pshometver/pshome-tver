@@ -7,7 +7,7 @@ body {
     line-height: 1.6;
 }
 h1, h2, h3 {
-    font-weight: 600;  /* Bold для заголовков */
+    font-weight: 600; 
     font-size: 3rem;  
 }
 
@@ -31,14 +31,12 @@ h1, h2, h3 {
 
 .header__logo-text {
     font-size: 35px;
-    /* font-weight: bold;} */
 }
 .header__top-inner{
     padding-top: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* margin-bottom: 15px; */
 }
 .header__nav-list{
     display: flex;
@@ -98,7 +96,6 @@ h1, h2, h3 {
 
     
 }
-/* Fallback for old browsers - PNG */
 @supports not (background-image: url('../images/venom.webp')) {
     .header__banner-content {
         background-image: url('../images/venom.png');
@@ -125,7 +122,7 @@ h1, h2, h3 {
     align-items: center;
     gap: 10px;
     text-align: left;
-    max-width: 170px; /* уменьшите для мобильных */
+    max-width: 170px; 
 }
 
 .header__icon-list {
@@ -159,7 +156,7 @@ h1, h2, h3 {
 }
 .header__icon-item:first-child {
     position: relative;
-    top: -10px; /* поднимаем на 10px */
+    top: -10px; 
 }
 .header__icon-item:first-child span {
     margin-top: 18px;
@@ -190,15 +187,15 @@ h1, h2, h3 {
 
 }
 .price__title{
-    font-size: 1.5rem;  /* 24px */
+    font-size: 1.5rem;  
     line-height: 1.3;
     margin: 0px 0px 30px 0;
 }
 .price__list{
     display: grid;
-    grid-template-columns: 1fr 1fr; /* 2 колонки */
-    grid-template-rows: auto auto; /* 2 строки */
-    gap: 4px; /* расстояние между ячейками */
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: auto auto; 
+    gap: 4px; 
     min-width: 320px;
 }
 .price__item {
@@ -245,23 +242,21 @@ h1, h2, h3 {
 .games__container {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-auto-rows: 1fr; /* Ключевое свойство */
-    gap: 20px; /* Единый отступ */
-    align-items: start; /* Выравнивание по верху */
+    grid-auto-rows: 1fr; 
+    gap: 20px; 
+    align-items: start; /
 }
 .games__show-more {
     width: 100%;
-    margin: 40px auto; /* автоматические отступы по бокам + отступ сверху */
-    display: block; /* чтобы margin: auto работал */
+    margin: 40px auto; 
+    display: block; 
     padding: 12px 24px;
     background-color:  rgb(224, 224, 224);
     color: black;
     border: none;
-    /* border-radius: 8px; */
     cursor: pointer;
     font-size: 16px;
     text-align: center;
-    /* border: 1px solid black; */
     margin-bottom: 140px;
 }
 .games__show-more{
@@ -282,7 +277,6 @@ h1, h2, h3 {
 }
 .games__game-photo { 
     transition: all 0.3s ease;
-    /* box-shadow: 0 0px 5px rgba(68, 68, 65, 0.6); */
 }
 .games__game-photo:hover{
     transform: translateY(-3px);
@@ -309,9 +303,7 @@ h1, h2, h3 {
 }
 .ruls__carta1{
     display: flex;
-    /* justify-content: space-evenly; */
     gap: 85px;
-    /* margin: 0 auto */
     justify-content: center;
 }
 .test{
@@ -329,31 +321,22 @@ h1, h2, h3 {
 .carta__item-two{
     margin-top: 15px;
 }
-/* Счетчик для первого списка */
 .ruls__carta {
     counter-reset: list1;
 }
-
-/* Счетчик для второго списка, начинаем с 5 */
 .ruls__carta1 {
-    counter-reset: list2 4; /* 4 + 1 = 5 */
+    counter-reset: list2 4; 
 }
-
-/* Цифра внутри .carta__item-one */
 .carta__item-one::before {
-    content: counter(list1); /* Для первого списка */
+    content: counter(list1);
     font-size: 100px;
     font-weight: bold;
     color: rgb(197, 196, 196);
 }
-
-/* Для второго списка используем другой счетчик */
 .ruls__carta1 .carta__item-one::before {
     content: counter(list2);
     counter-increment: list2;
 }
-
-/* Увеличиваем счетчик для первого списка */
 .ruls__carta .carta__item-one::before {
     counter-increment: list1;
 }
@@ -362,7 +345,6 @@ h1, h2, h3 {
 .contact__flex{
     display: flex;
     flex-direction: column;
-    /* justify-content: center     ; */
     align-items: center;
     padding-bottom: 50px;
 }
@@ -373,7 +355,6 @@ h1, h2, h3 {
 }
 .contact__number{
     font-size: 80px;
-    /* font-weight: 100; */
     margin-bottom: 35px;
     color: rgb(59, 59, 59);
     font-weight: 100;
@@ -395,7 +376,6 @@ h1, h2, h3 {
 }
 .footer{
     background-color: white;
-    /* height: 200px; */
 }
 .footer__flex{
     display: flex;
@@ -416,7 +396,6 @@ h1, h2, h3 {
 }
 
 /* ---------------------------------- */
-/* Стили для формы с согласием */
 .form__checkbox {
     display: flex;
     align-items: flex-start;
@@ -491,7 +470,6 @@ h1, h2, h3 {
     padding-top: 10px;
 }
 
-/* Стили для кнопки загрузки */
 .form__button {
     position: relative;
     overflow: hidden;
@@ -508,8 +486,6 @@ h1, h2, h3 {
 .form__button.loading .button-loading {
     display: inline;
 }
-
-/* Дополнительные стили для формы */
 .form__label {
     display: block;
     margin-bottom: 8px;
@@ -517,12 +493,9 @@ h1, h2, h3 {
     color: #333;
     font-size: 14px;
 }
-
-
 .form__input:invalid {
     border-color: #ff6b6b;
 }
-
 .form__input:valid {
     border-color: #51cf66;
 }
@@ -633,7 +606,7 @@ h1, h2, h3 {
 
 .form__input:focus {
     outline: none;
-    border-color: #FFD700; /* Золотой цвет */
+    border-color: #FFD700;
     box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2);
     transform: translateY(-2px);
 }
@@ -642,7 +615,6 @@ h1, h2, h3 {
     color: #aaa;
 }
 
-/* Стили чекбокса */
 .form__checkbox {
     display: flex;
     align-items: flex-start;
@@ -754,7 +726,6 @@ h1, h2, h3 {
     left: 100%;
 }
 
-/* Стили для состояния загрузки */
 .form__button.loading {
     pointer-events: none;
     opacity: 0.8;
@@ -776,7 +747,6 @@ h1, h2, h3 {
     display: inline;
 }
 
-/* Футер формы */
 .form__footer {
     font-size: 12px;
     color: #888;
@@ -786,46 +756,7 @@ h1, h2, h3 {
     border-top: 1px solid #f0f0f0;
 }
 
-/* Адаптивность
-@media (max-width: 768px) {
-    .modal__content {
-        margin: 10% auto;
-        padding: 30px 25px;
-        width: 95%;
-    }
-    
-    .modal__title {
-        font-size: 24px;
-        margin-bottom: 25px;
-    }
-    
-    .form__input {
-        padding: 12px 15px;
-        font-size: 16px;
-    }
-    
-    .form__button {
-        padding: 16px 25px;
-        font-size: 16px;
-    }
-    
-    .form__checkbox {
-        font-size: 13px;
-        padding: 12px;
-    }
-}
 
-@media (max-width: 480px) {
-    .modal__content {
-        margin: 5% auto;
-        padding: 25px 20px;
-    }
-    
-    .modal__title {
-        font-size: 22px;
-    }
-} */
-/* Стили для форм аренды */
 .rental-modal {
     max-width: 750px;
     padding: 30px;
@@ -849,8 +780,6 @@ h1, h2, h3 {
 .rental-img {
     width: 100%;
     height: auto;
-    /* border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); */
 }
 
 .rental-info {
@@ -865,7 +794,6 @@ h1, h2, h3 {
     -webkit-text-fill-color: transparent;
     font-weight: 700;
 }
-/* Анимация для изображений */
 .price__img-ps4,
 .price__img-ps5,
 .price__img-vr2 {
@@ -887,7 +815,6 @@ h1, h2, h3 {
     overflow: hidden;
 }
 
-/* Мягкий ненавязчивый блеск */
 .header__banner-button::before, .price__button::before {
     content: '';
     position: absolute;
@@ -921,27 +848,20 @@ h1, h2, h3 {
     transform: translateY(-1px);
 }
 .contact__button-bot {
-    /* Стиль вашего сайта с синим цветом VK */
     background: linear-gradient(135deg, #0077FF 0%, #0055CC 100%);
     color: white;
     border: none;
     padding: 18px 40px;
-    font-size: 1rem; /* 18px */
+    font-size: 1rem; 
     font-weight: 700;
-    border-radius: 50px; /* Как у ваших кнопок */
-    
-    /* Тени и эффекты как у вас */
+    border-radius: 50px; 
     box-shadow: 0 6px 20px rgba(0, 119, 255, 0.4);
     letter-spacing: 0.5px;
-    
-    /* Анимации как у вас */
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     overflow: hidden;
-    
 }
 
-/* Эффект при наведении */
 .contact__button-bot:hover {
     background: linear-gradient(135deg, #0088FF 0%, #0066EE 100%);
     transform: translateY(-3px) scale(1.05);
@@ -950,13 +870,11 @@ h1, h2, h3 {
     text-decoration: none;
 }
 
-/* Эффект при нажатии */
 .contact__button-bot:active {
     transform: translateY(-1px) scale(1.02);
     box-shadow: 0 4px 15px rgba(0, 119, 255, 0.5);
 }
 
-/* Блестящий эффект как у ваших кнопок */
 .contact__button-bot::before {
     content: '';
     position: absolute;
@@ -979,6 +897,7 @@ h1, h2, h3 {
 .contact__button-bot:hover::before {
     left: 100%;
 }
+
 
 
 
