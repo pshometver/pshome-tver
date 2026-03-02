@@ -1188,6 +1188,7 @@ h1, h2, h3 {
         font-size: 14px;
         text-align: center;
         font-style: normal; /* Для адреса */
+        padding: 0 10px;
     }
     .footer__left,
     .footer__right {
@@ -1412,6 +1413,7 @@ h1, h2, h3 {
     
 }
 }
+
 
 
 
