@@ -1,26 +1,73 @@
 document.addEventListener('DOMContentLoaded', function() {
     const showMoreBtn = document.getElementById('showMoreBtn');
+    const gamesContainer = document.querySelector('.games__container');
+    const allGames = document.querySelectorAll('.games__game');
     const hiddenGames = document.querySelectorAll('.games__game--hidden');
     
-    showMoreBtn.addEventListener('click', function() {
-        // Проверяем, скрыты ли элементы (учитываем CSS класс)
-        const isHidden = Array.from(hiddenGames).some(game => 
-            game.style.display === 'none' || window.getComputedStyle(game).display === 'none'
-        );
+    // Определяем, сколько игр показывать в зависимости от ширины экрана
+    function getVisibleCount() {
+        return window.innerWidth <= 768 ? 6 : 5; // На мобилке 6 (2 ряда по 3), на десктопе 5
+    }
+    
+    // Функция для обновления видимости игр
+    function updateGamesVisibility(showAll = false) {
+        const visibleCount = getVisibleCount();
         
-        // Переключаем отображение
-        hiddenGames.forEach(game => {
-            if (isHidden) {
-                game.style.display = 'grid'; // или 'block' в зависимости от вашего layout
+        allGames.forEach((game, index) => {
+            if (index < visibleCount) {
+                // Первые N игр всегда видны
+                game.style.display = ''; // Возвращаем к CSS-правилам
+                game.classList.remove('games__game--hidden');
             } else {
-                game.style.display = 'none';
+                // Остальные скрыты, если showAll = false
+                if (showAll) {
+                    game.style.display = ''; // Показываем все
+                    game.classList.remove('games__game--hidden');
+                } else {
+                    game.style.display = 'none'; // Скрываем
+                    game.classList.add('games__game--hidden');
+                }
             }
         });
         
         // Меняем текст кнопки
-        this.textContent = isHidden ? 'Скрыть' : 'Показать еще';
+        if (showAll) {
+            showMoreBtn.textContent = 'Скрыть';
+        } else {
+            showMoreBtn.textContent = 'Показать еще';
+        }
+    }
+    
+    // При загрузке показываем первые 6 (на мобилке) или 5 (на десктопе)
+    updateGamesVisibility(false);
+    
+    // При изменении размера окна пересчитываем
+    window.addEventListener('resize', function() {
+        // Проверяем, не нажата ли кнопка "Показать еще"
+        const isShowingAll = showMoreBtn.textContent === 'Скрыть';
+        
+        if (!isShowingAll) {
+            updateGamesVisibility(false);
+        } else {
+            // Если показаны все, просто обновляем отображение без скрытия
+            const visibleCount = getVisibleCount();
+            allGames.forEach((game, index) => {
+                if (index < visibleCount) {
+                    game.style.display = '';
+                    game.classList.remove('games__game--hidden');
+                } else {
+                    // Оставляем как есть
+                }
+            });
+        }
     });
-})
+    
+    // Обработчик клика по кнопке
+    showMoreBtn.addEventListener('click', function() {
+        const isShowingAll = this.textContent === 'Скрыть';
+        updateGamesVisibility(!isShowingAll);
+    });
+});
 // Конфигурация Telegram бота
 const TELEGRAM_CONFIG = {
     token: '8249863570:AAFENmrMrcjt9_qZ36iKMfcUWZZ59FqsYhU',
