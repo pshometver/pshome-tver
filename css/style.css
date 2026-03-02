@@ -22,6 +22,9 @@ h1, h2, h3 {
     margin: 0 auto;
     
 }
+.header__mobile-container{
+    display: none;
+}
 .header__logo{
     display: flex;
     align-items:center;
@@ -896,6 +899,518 @@ h1, h2, h3 {
 
 .contact__button-bot:hover::before {
     left: 100%;
+}
+@media screen and (max-width: 768px) {
+    /* Сбрасываем контейнер на телефоне */
+    .container {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* --- СЕКЦИЯ БАННЕРА --- */
+    
+    .header__banner {
+        width: 100% !important; /* Перебиваем 1140px */
+        height: auto !important; /* Убираем фиксированную высоту */
+    }
+    
+    .header__banner-content {
+        background-image: url(/venom.png);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: auto !important; /* Убираем 400px */
+        min-height: 200px; /* Минимальная высота, если картинка слишком маленькая */
+        max-height: 400px; Максимальная высота, чтобы не было гигантской
+        
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .header__banner-text {
+        font-size: 24px; /* Уменьшаем заголовок для телефона */
+        line-height: 1.3;
+        margin-bottom: 25px;
+    }
+    .header__bot {
+        width: 100%;
+    }
+    
+    .header__icon {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    
+    /* Переделываем список в сетку 2x2 */
+    .header__icon-list {
+        display: grid !important; /* Перебиваем flex на grid */
+        grid-template-columns: 1fr 1fr !important; /* Две равные колонки */
+        gap: 10px; /* Расстояние между элементами */
+        width: 100%;
+    }
+    
+    /* Стили для каждого пункта - иконка слева, текст справа */
+    .header__icon-item {
+        display: flex !important;
+        flex-direction: row !important; /* Иконка слева, текст справа */
+        align-items: center; /* Выравниваем по центру вертикали */
+        gap: 12px; /* Расстояние между иконкой и текстом */
+        max-width: 100% !important; /* Убираем ограничение ширины */
+        width: 100%;
+        padding: 10px 12px;
+        
+    }
+    
+    
+    /* Стили для иконок */
+    .header__icon-item img {
+        width: 50px; /* Фиксированный размер */
+        height: 50px;
+        flex-shrink: 0; /* Запрещаем сжиматься */
+    }
+    
+    /* Стили для текста - растягивается на всю ширину */
+    .header__icon-item .span {
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1.4;
+        text-align: left; /* Текст прижат к левому краю */
+    }
+    
+    /* Скрываем br внутри span на мобильных */
+    .header__icon-item .span br {
+        display: none;
+    }
+    .body__price {
+        width: 100%;
+    }
+    
+    .title__price {
+        font-size: 2rem; /* Уменьшаем заголовок */
+        padding-left: 10px;
+        margin-bottom: 20px;
+    }
+    
+    /* Карточки в колонку */
+    .price__cards {
+        display: flex !important;
+        flex-direction: column !important; /* Вертикальное расположение */
+        align-items: center !important; /* Центрируем карточки */
+        gap: 30px; /* Расстояние между карточками */
+        margin: 30px 0;
+        width: 100%;
+    }
+
+    /* Заголовок карточки */
+    .price__title {
+        font-size: 1.3rem;
+        margin: 15px 0 20px 0;
+    }
+    
+    /* Список цен */
+    .price__list {
+        min-width: auto !important; /* Убираем фиксированную минимальную ширину */
+        width: 100%;
+        gap: 8px; /* Немного увеличиваем расстояние между ячейками */
+    }
+    
+    /* Элементы цен */
+    .price__item {
+        padding: 10px;
+        font-size: 14px;
+    }
+    .tittle__games {
+        font-size: 2rem; /* Уменьшаем заголовок */
+        margin-bottom: 40px;
+        margin-top: 60px;
+        text-align: center;
+    }
+    
+    /* Переделываем сетку на 3 колонки */
+    .games__container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr) !important; /* 3 равные колонки */
+        gap: 15px; /* Расстояние между элементами */
+        align-items: start;
+        width: 100%;
+        padding: 0 10px
+    }
+    
+    /* Стили для карточки игры */
+    .games__game {
+        width: 100% !important; /* На всю ширину колонки */
+    }
+    
+    /* Адаптивные изображения */
+    .games__game-photo {
+        width: 100%; /* Картинка на всю ширину родителя */
+        height: auto; /* Автоматическая высота, сохраняем пропорции */
+        object-fit: cover; /* Чтобы красиво заполняло */
+        transition: all 0.3s ease;
+    }
+    
+    /* Убираем фиксированную ширину у названий */
+    .games__game-name {
+        text-align: center;
+        font-weight: 550;
+        font-size: 14px; /* Уменьшаем шрифт для мобильных */
+        line-height: 1.3;
+        width: 100% !important; /* Убираем фиксированную ширину */
+        word-wrap: break-word; /* Переносим длинные слова */
+    }
+    
+    /* Кнопка "Показать еще" */
+    .games__show-more {
+    font-size: 14px;
+    width: calc(100% - 20px); /* Ширина на всю ширину минус отступы */
+    
+}
+.games__game--hidden {
+    display: none;
+}
+    .title__ruls {
+        font-size: 2rem; /* Уменьшаем заголовок */
+        margin-bottom: 50px;
+    }
+    
+    /* Первый список - две колонки */
+    .ruls__carta {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Две колонки */
+        gap: 30px;
+        justify-content: center;
+        padding: 15px;
+    }
+    
+    /* Второй список - тоже две колонки */
+    .ruls__carta1 {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Две колонки */
+        gap: 30px;
+        justify-content: center;
+        padding: 15px;
+    }
+    
+    /* Элементы внутри списков */
+    .ruls__carta-item {
+        max-width: 100%; /* Убираем ограничение ширины */
+        margin-bottom: 30px;
+         display: flex;           /* ДОБАВИЛ */
+    flex-direction: row;     /* ДОБАВИЛ */
+    align-items: flex-start; /* ДОБАВИЛ */
+    gap: 15px;               /* ДОБАВИЛ */
+    }
+    /* Центрируем 7-й пункт (последний элемент во втором списке) */
+    .ruls__carta1 .ruls__carta-item:last-child {
+        grid-column: span 2; /* Растягиваем на две колонки */
+        justify-self: center; /* Центрируем по горизонтали */
+        max-width: 50%; /* Ограничиваем ширину до половины контейнера */
+    }
+    
+    /* Уменьшаем цифры */
+    .carta__item-one::before {
+        font-size: 70px;
+    }
+    
+    /* Уменьшаем изображения */
+    .test {
+        width: 90px;
+        height: auto;
+    }
+    
+    /* Специфические отступы для определенных изображений */
+    .test-1 {
+        margin-top: 5px;
+    }
+    
+    .test-3 {
+        margin-left: 8px;
+    }
+    
+    /* Текст */
+    .carta__text {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+    .contact__flex {
+        padding-bottom: 40px;
+    }
+    
+    .contact__title {
+        margin-top: 50px;
+        font-size: 2rem; /* Уменьшаем заголовок */
+        margin-bottom: 25px;
+        text-align: center;
+    }
+    
+    .contact__number {
+        font-size: 60px; /* Уменьшаем номер */
+        margin-bottom: 25px;
+        text-align: center;
+        word-break: break-word; /* Чтобы номер переносился */
+    }
+    
+    .contact__description {
+        font-size: 16px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .contact__button-bot {
+        margin: 25px 0 25px 0;
+        padding: 10px 20px;
+        font-size: 14px;
+        text-align: center;
+        white-space: normal; /* Разрешаем перенос текста на кнопке */
+        word-wrap: break-word;
+        max-width: 90%; /* Чтобы не уходила за края */
+    }
+    
+    .contact__address {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 40px;
+        flex-wrap: wrap; /* На случай, если адрес слишком длинный */
+        justify-content: center;
+    }
+    
+    .contact__address img {
+        width: 35px; /* Уменьшаем иконку */
+        height: auto;
+    }
+    
+    .contact_address-text {
+        font-size: 14px;
+        text-align: center;
+        font-style: normal; /* Для адреса */
+    }
+    .footer__left,
+    .footer__right {
+        width: 100%;
+        text-align: center; /* Центрируем текст */
+    }
+    
+    .footer__left-text,
+    .footer__right-text {
+        font-size: 14px; /* Немного уменьшаем */
+        margin-bottom: 15px;
+        font-weight:400;
+    }
+    .footer__left-text{
+        margin-right: 30px;
+    }
+    
+    .footer__left-message,
+    .footer__right-social {
+        margin-top: 15px;
+        display: flex;
+        gap: 20px;
+        justify-content: center; /* Центрируем иконки */
+    }
+    
+    .footer__left-whatsap,
+    .footer__left-telegram,
+    .footer__right-social img {
+        width: 30px; /* Уменьшаем иконки */
+        height: auto;
+    }
+    .header__top-inner {
+        display: none;
+    }
+    .header__mobile-container{
+        display: flex;
+        flex-direction: column;
+        padding: 10px 10px 10px 10px;
+    }
+    .header__mobile{
+        display: flex;
+        margin-bottom: 0;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+    .logo{
+        margin: 0px;
+    }
+    .header__logo-text{
+        font-size: 20px;
+    }
+    .header__banner{
+        margin-top: 0;
+    }
+    .header__top{
+        padding: 0;
+    }
+    
+    /* Адрес */
+    .header__addres {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        font-size: 10px;
+        margin: 0;
+        max-width: 115px;
+        gap: 2px;
+    }
+    
+    .header__addres br {
+        display: none; /* Убираем перенос строки */
+    }
+    
+    /* Телефон */
+    .header__tell {
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        font-size: 10px;
+        margin: 0;
+        gap: 2px;
+        width: 100%;
+        max-width: 130px
+    }
+    
+    /* Telegram */
+    .header__tg {
+        display: flex;
+        align-items: center;
+        margin: 0;
+        gap: 5px;
+        width: 100%;
+        max-width: 110px;
+    }
+    .telegram__phone{
+        font-size: 10px;
+        font-weight: 500;
+    }
+    .exit1{
+        display: none;
+    }
+    
+}
+
+
+/* Для мобильных телефонов (до 576px) */
+@media screen and (max-width: 576px) {
+    
+    .title__ruls {
+        font-size: 2rem; /* Еще меньше заголовок */
+        margin-bottom: 40px;
+    }
+    
+    /* Оба списка - в одну колонку */
+    .ruls__carta,
+    .ruls__carta1 {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 0;
+    }
+    
+    /* Каждый пункт на всю ширину */
+    .ruls__carta-item {
+        max-width: 100%;
+        width: 100%;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: row; /* Иконка слева, текст справа */
+        align-items: center;
+        gap: 15px;
+        padding: 15px;
+        
+    }
+    
+    /* Контейнер для изображения */
+    .carta__item-one {
+        flex-shrink: 0; /* Не сжимается */
+        width: auto;
+        display: flex;
+        align-items: center;
+        position: relative;
+        justify-content: center;
+    }
+    
+    /* Цифры */
+    .carta__item-one::before {
+        font-size: 50px;
+        line-height: 1;
+        margin-right: 10px;
+    }
+    .ruls__carta1 .ruls__carta-item:last-child {
+        max-width: 100%;
+    }
+    /* Изображения */
+    .test {
+        width: 60px;
+        height: auto;
+    }
+    .end{
+        margin-top: 200px;
+    }
+    /* Текст */
+    .carta__item-two {
+        margin-top: 0;
+        flex: 1; /* Растягивается на всю ширину */
+    }
+    
+    .carta__text {
+        font-size: 14px;
+        line-height: 1.4;
+        margin: 0;
+    }
+    
+    .contact__title {
+        margin-top: 40px;
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+    
+    .contact__number {
+        font-size: 42px; /* Еще меньше номер */
+        margin-bottom: 20px;
+    }
+    
+    .contact__description {
+        font-size: 14px;
+    }
+    
+    .contact__button-bot {
+        margin: 20px 0 20px 0;
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+    
+    .contact__address {
+        gap: 10px;
+        margin-bottom: 30px;
+    }
+    
+    .contact__address img {
+        width: 30px;
+    }
+    
+    .contact_address-text {
+        font-size: 13px;
+    }
+}
+@media screen and (max-width: 501px) {
+.header__tg, .header__tell, .header__addres{
+    justify-content: center;
+    max-width: 115px
+}
+.exit{
+    display: none;
+}
+.exit1{
+    display: flex;
+    border-bottom: rgb(236, 232, 232) solid 1px;
+    width: 100%;
+    padding-bottom: 5px;
+    
+}
 }
 
 
