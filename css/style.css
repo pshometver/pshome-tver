@@ -1295,17 +1295,19 @@ button{
         display: none;
     }
     .rental-modal {
-        max-width: 480px;
-        padding: 20px;
+        max-width: 380px;
+        padding: 0 20px 20px 20px;
     }
     
     .rental-form {
         flex-direction: column;
-        gap: 20px;
+        gap: 0px;
     }
     
     .rental-image {
         min-width: 300px;
+        margin: 0;
+        gap: 0;
     }
     
     .rental-title {
@@ -1476,6 +1478,7 @@ button{
     
 }
 }
+
 
 
 
