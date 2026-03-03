@@ -1149,7 +1149,7 @@ h1, h2, h3 {
     }
     
     .contact__number {
-        font-size: 60px; /* Уменьшаем номер */
+        font-size: 50px; /* Уменьшаем номер */
         margin-bottom: 25px;
         text-align: center;
         word-break: break-word; /* Чтобы номер переносился */
@@ -1413,6 +1413,7 @@ h1, h2, h3 {
     
 }
 }
+
 
 
 
