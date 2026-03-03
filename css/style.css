@@ -1290,6 +1290,65 @@ h1, h2, h3 {
     .exit1{
         display: none;
     }
+    .rental-modal {
+        max-width: 100%;
+        padding: 20px;
+    }
+    
+    .rental-form {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .rental-image {
+        min-width: 300px;
+    }
+    
+    .rental-title {
+        font-size: 22px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .modal__form {
+        margin-top: 0;
+        gap: 20px;
+    }
+    
+    .form__input {
+        padding: 12px 16px;
+        font-size: 16px; /* Предотвращаем зум на iPhone */
+    }
+    
+    .form__checkbox {
+        padding: 12px;
+    }
+    
+    .form__button {
+        padding: 15px 25px;
+        font-size: 16px;
+    }
+    
+    /* Убираем эффекты при наведении на мoбильных */
+    .form__checkbox:hover {
+        background: rgba(102, 126, 234, 0.05);
+        border-color: transparent;
+    }
+    
+    .form__button:hover {
+        transform: none;
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    }
+    
+    .form__button:hover::before {
+        left: -100%;
+    }
+    
+    .modal__close {
+        right: 15px;
+        top: 12px;
+        font-size: 24px;
+    }
     
 }
 
@@ -1413,6 +1472,7 @@ h1, h2, h3 {
     
 }
 }
+
 
 
 
