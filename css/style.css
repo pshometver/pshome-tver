@@ -11,6 +11,10 @@ h1, h2, h3 {
     font-size: 3rem;  
 }
 
+button{
+    color: #000;
+}
+
 .wrapper{
     width: 100%;
     min-height: 100%;
@@ -1291,7 +1295,7 @@ h1, h2, h3 {
         display: none;
     }
     .rental-modal {
-        max-width: 100%;
+        max-width: 480px;
         padding: 20px;
     }
     
@@ -1472,6 +1476,7 @@ h1, h2, h3 {
     
 }
 }
+
 
 
 
