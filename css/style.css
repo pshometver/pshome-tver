@@ -1418,22 +1418,14 @@ button{
 
 /* Кнопки навигации */
 .slider__btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(8px);
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    color: white;
+    background: transparent; /* Убираем фон */
+    border: none; /* Убираем рамку */
+    width: 40px;
+    height: 40px;
+}
+
+.slider__btn:hover {
+    background: rgba(255, 255, 255, 0.1); /* Легкий фон при наведении */
 }
 
 .slider__btn:hover {
