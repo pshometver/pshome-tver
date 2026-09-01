@@ -110,11 +110,10 @@ button{
 }
 .header__banner-text{
     color: rgb(255, 255, 255);
-    font-size: 3.1rem;
+    font-size: 3.3rem;
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0,0,0,1);
     font-weight: bold;
-    white-space: nowrap; /* ← ДОБАВЬТЕ ЭТО */
 }
 .header__banner-button{
     background-color: yellow;
@@ -940,7 +939,6 @@ button{
         font-size: 24px; /* Уменьшаем заголовок для телефона */
         line-height: 1.3;
         margin-bottom: 25px;
-        
     }
     .header__bot {
         width: 100%;
@@ -1359,6 +1357,127 @@ button{
     }
     
 }
+
+
+/* Для мобильных телефонов (до 576px) */
+@media screen and (max-width: 576px) {
+    
+    .title__ruls {
+        font-size: 2rem; /* Еще меньше заголовок */
+        margin-bottom: 40px;
+    }
+    
+    /* Оба списка - в одну колонку */
+    .ruls__carta,
+    .ruls__carta1 {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 0;
+    }
+    
+    /* Каждый пункт на всю ширину */
+    .ruls__carta-item {
+        max-width: 100%;
+        width: 100%;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: row; /* Иконка слева, текст справа */
+        align-items: center;
+        gap: 15px;
+        padding: 15px;
+        
+    }
+    
+    /* Контейнер для изображения */
+    .carta__item-one {
+        flex-shrink: 0; /* Не сжимается */
+        width: auto;
+        display: flex;
+        align-items: center;
+        position: relative;
+        justify-content: center;
+    }
+    
+    /* Цифры */
+    .carta__item-one::before {
+        font-size: 50px;
+        line-height: 1;
+        margin-right: 10px;
+    }
+    .ruls__carta1 .ruls__carta-item:last-child {
+        max-width: 100%;
+    }
+    /* Изображения */
+    .test {
+        width: 60px;
+        height: auto;
+    }
+    .end{
+        margin-top: 200px;
+    }
+    /* Текст */
+    .carta__item-two {
+        margin-top: 0;
+        flex: 1; /* Растягивается на всю ширину */
+    }
+    
+    .carta__text {
+        font-size: 14px;
+        line-height: 1.4;
+        margin: 0;
+    }
+    
+    .contact__title {
+        margin-top: 40px;
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+    
+    .contact__number {
+        font-size: 37px; /* Еще меньше номер */
+        margin-bottom: 20px;
+    }
+    
+    .contact__description {
+        font-size: 14px;
+    }
+    
+    .contact__button-bot {
+        margin: 20px 0 20px 0;
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+    
+    .contact__address {
+        gap: 10px;
+        margin-bottom: 30px;
+    }
+    
+    .contact__address img {
+        width: 30px;
+    }
+    
+    .contact_address-text {
+        font-size: 13px;
+    }
+}
+@media screen and (max-width: 501px) {
+.header__tg, .header__tell, .header__addres{
+    justify-content: center;
+    max-width: 115px
+}
+.exit{
+    display: none;
+}
+.exit1{
+    display: flex;
+    border-bottom: rgb(236, 232, 232) solid 1px;
+    width: 100%;
+    padding-bottom: 5px;
+    
+}
+}
 /* ===== СЛАЙДЕР ===== */
 .slider {
     position: relative;
@@ -1532,127 +1651,6 @@ button{
         height: 18px;
     }
 }
-
-/* Для мобильных телефонов (до 576px) */
-@media screen and (max-width: 576px) {
-    
-    .title__ruls {
-        font-size: 2rem; /* Еще меньше заголовок */
-        margin-bottom: 40px;
-    }
-    
-    /* Оба списка - в одну колонку */
-    .ruls__carta,
-    .ruls__carta1 {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        padding: 0;
-    }
-    
-    /* Каждый пункт на всю ширину */
-    .ruls__carta-item {
-        max-width: 100%;
-        width: 100%;
-        margin-bottom: 20px;
-        display: flex;
-        flex-direction: row; /* Иконка слева, текст справа */
-        align-items: center;
-        gap: 15px;
-        padding: 15px;
-        
-    }
-    
-    /* Контейнер для изображения */
-    .carta__item-one {
-        flex-shrink: 0; /* Не сжимается */
-        width: auto;
-        display: flex;
-        align-items: center;
-        position: relative;
-        justify-content: center;
-    }
-    
-    /* Цифры */
-    .carta__item-one::before {
-        font-size: 50px;
-        line-height: 1;
-        margin-right: 10px;
-    }
-    .ruls__carta1 .ruls__carta-item:last-child {
-        max-width: 100%;
-    }
-    /* Изображения */
-    .test {
-        width: 60px;
-        height: auto;
-    }
-    .end{
-        margin-top: 200px;
-    }
-    /* Текст */
-    .carta__item-two {
-        margin-top: 0;
-        flex: 1; /* Растягивается на всю ширину */
-    }
-    
-    .carta__text {
-        font-size: 14px;
-        line-height: 1.4;
-        margin: 0;
-    }
-    
-    .contact__title {
-        margin-top: 40px;
-        font-size: 2rem;
-        margin-bottom: 20px;
-    }
-    
-    .contact__number {
-        font-size: 37px; /* Еще меньше номер */
-        margin-bottom: 20px;
-    }
-    
-    .contact__description {
-        font-size: 14px;
-    }
-    
-    .contact__button-bot {
-        margin: 20px 0 20px 0;
-        padding: 8px 16px;
-        font-size: 12px;
-    }
-    
-    .contact__address {
-        gap: 10px;
-        margin-bottom: 30px;
-    }
-    
-    .contact__address img {
-        width: 30px;
-    }
-    
-    .contact_address-text {
-        font-size: 13px;
-    }
-}
-@media screen and (max-width: 501px) {
-.header__tg, .header__tell, .header__addres{
-    justify-content: center;
-    max-width: 115px
-}
-.exit{
-    display: none;
-}
-.exit1{
-    display: flex;
-    border-bottom: rgb(236, 232, 232) solid 1px;
-    width: 100%;
-    padding-bottom: 5px;
-    
-}
-}
-
 
 
 
