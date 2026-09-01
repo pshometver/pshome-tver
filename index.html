@@ -135,10 +135,38 @@
                 <section class="header__body" aria-labelledby="main-heading">
                     <div class="container">
                         <div class="header__banner">
-                            <div class="header__banner-content">
-                                <h1 class="header__banner-text">Аренда игровых приставок в Твери </h1>
+                            <!-- Слайдер -->
+                                <div class="slider" id="mainSlider">
+                    <div class="slider__track" id="sliderTrack">
+                        <!-- Слайд 1 -->
+                        <div class="slider__slide active">
+                            <div class="slider__slide-content">
+                                <h1 class="header__banner-text">Аренда игровых приставок в Твери</h1>
                                 <button class="header__banner-button" aria-label="Оставить заявку на аренду">ОСТАВИТЬ ЗАЯВКУ</button>
                             </div>
+                        </div>
+                        <!-- Слайд 2 -->
+                        <div class="slider__slide">
+                            <div class="slider__slide-content">
+                                <h1 class="header__banner-text">Более 500 игр в каталоге</h1>
+                                <button class="header__banner-button" aria-label="Оставить заявку на аренду">ОСТАВИТЬ ЗАЯВКУ</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Кнопки навигации -->
+                    <button class="slider__btn slider__btn--prev" aria-label="Предыдущий слайд">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M15 18l-6-6 6-6"/>
+                        </svg>
+                    </button>
+                    <button class="slider__btn slider__btn--next" aria-label="Следующий слайд">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M9 18l6-6-6-6"/>
+                        </svg>
+                    </button>
+                    <!-- Индикаторы (точки) -->
+                    <div class="slider__dots" id="sliderDots"></div>
+                </div>
                         </div>
                     </div>
                 </section>
