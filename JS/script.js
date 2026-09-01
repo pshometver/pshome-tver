@@ -332,3 +332,138 @@ document.addEventListener('DOMContentLoaded', function() {
     initApplicationModal();    // Главная форма
     initRentalModals();        // Формы аренды
 });
+// ===== СМАРТ-СЛАЙДЕР =====
+document.addEventListener('DOMContentLoaded', function() {
+    const slider = {
+        track: document.getElementById('sliderTrack'),
+        slides: document.querySelectorAll('.slider__slide'),
+        prevBtn: document.querySelector('.slider__btn--prev'),
+        nextBtn: document.querySelector('.slider__btn--next'),
+        dotsContainer: document.getElementById('sliderDots'),
+        currentIndex: 0,
+        totalSlides: 0,
+        interval: null,
+        autoplayDelay: 5000, // 5 секунд
+        isTransitioning: false,
+        
+        init() {
+            this.totalSlides = this.slides.length;
+            
+            // Создаем точки
+            this.createDots();
+            
+            // Обновляем активную точку
+            this.updateDots();
+            
+            // Запускаем автоплей
+            this.startAutoplay();
+            
+            // События
+            this.prevBtn.addEventListener('click', () => this.prev());
+            this.nextBtn.addEventListener('click', () => this.next());
+            
+            // Пауза при наведении
+            this.track.addEventListener('mouseenter', () => this.stopAutoplay());
+            this.track.addEventListener('mouseleave', () => this.startAutoplay());
+            
+            // Клавиатура
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') this.prev();
+                if (e.key === 'ArrowRight') this.next();
+            });
+            
+            // Свайп для мобильных
+            this.initSwipe();
+        },
+        
+        createDots() {
+            for (let i = 0; i < this.totalSlides; i++) {
+                const dot = document.createElement('button');
+                dot.className = 'slider__dot';
+                dot.setAttribute('aria-label', `Перейти к слайду ${i + 1}`);
+                dot.dataset.index = i;
+                dot.addEventListener('click', () => this.goTo(i));
+                this.dotsContainer.appendChild(dot);
+            }
+        },
+        
+        updateDots() {
+            const dots = this.dotsContainer.querySelectorAll('.slider__dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === this.currentIndex);
+            });
+        },
+        
+        goTo(index) {
+            if (this.isTransitioning || index === this.currentIndex) return;
+            this.isTransitioning = true;
+            
+            this.currentIndex = index;
+            this.track.style.transform = `translateX(-${index * 100}%)`;
+            this.updateDots();
+            
+            setTimeout(() => {
+                this.isTransitioning = false;
+            }, 600);
+        },
+        
+        next() {
+            const nextIndex = (this.currentIndex + 1) % this.totalSlides;
+            this.goTo(nextIndex);
+        },
+        
+        prev() {
+            const prevIndex = (this.currentIndex - 1 + this.totalSlides) % this.totalSlides;
+            this.goTo(prevIndex);
+        },
+        
+        startAutoplay() {
+            this.stopAutoplay();
+            this.interval = setInterval(() => this.next(), this.autoplayDelay);
+        },
+        
+        stopAutoplay() {
+            if (this.interval) {
+                clearInterval(this.interval);
+                this.interval = null;
+            }
+        },
+        
+        initSwipe() {
+            let startX = 0;
+            let isSwiping = false;
+            
+            this.track.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                isSwiping = true;
+                this.stopAutoplay();
+            }, { passive: true });
+            
+            this.track.addEventListener('touchmove', (e) => {
+                if (!isSwiping) return;
+                // Можно добавить drag-эффект
+            }, { passive: true });
+            
+            this.track.addEventListener('touchend', (e) => {
+                if (!isSwiping) return;
+                isSwiping = false;
+                
+                const endX = e.changedTouches[0].clientX;
+                const diff = startX - endX;
+                
+                if (Math.abs(diff) > 50) { // Минимальное расстояние для свайпа
+                    if (diff > 0) {
+                        this.next();
+                    } else {
+                        this.prev();
+                    }
+                }
+                
+                this.startAutoplay();
+            }, { passive: true });
+        }
+    };
+    
+    // Инициализация слайдера
+    slider.init();
+});
