@@ -114,6 +114,7 @@ button{
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0,0,0,1);
     font-weight: bold;
+    white-space: nowrap; /* ← ДОБАВЬТЕ ЭТО */
 }
 .header__banner-button{
     background-color: yellow;
@@ -939,6 +940,7 @@ button{
         font-size: 24px; /* Уменьшаем заголовок для телефона */
         line-height: 1.3;
         margin-bottom: 25px;
+        
     }
     .header__bot {
         width: 100%;
@@ -1424,14 +1426,30 @@ button{
     height: 40px;
 }
 
-.slider__btn:hover {
-    background: rgba(255, 255, 255, 0.1); /* Легкий фон при наведении */
+/* Кнопки навигации */
+.slider__btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.4); /* Темный полупрозрачный фон */
+    backdrop-filter: blur(8px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    color: white;
 }
 
 .slider__btn:hover {
     background: rgba(255, 255, 255, 0.3);
-    transform: translateY(-50%) scale(1.05);
-    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-50%) scale(1.1);
+    border-color: rgba(255, 255, 255, 0.6);
 }
 
 .slider__btn--prev {
@@ -1442,6 +1460,16 @@ button{
     right: 20px;
 }
 
+/* Иконки внутри кнопок */
+.slider__btn svg {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: white;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
 /* Точки-индикаторы */
 .slider__dots {
     position: absolute;
