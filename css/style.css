@@ -1528,15 +1528,6 @@ button{
     }
 }
 
-/* Затемнение для читаемости текста */
-.slider__slide::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.45);
-    z-index: 1;
-}
-
 .slider__slide-content {
     position: relative;
     z-index: 2;
