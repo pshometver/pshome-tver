@@ -343,7 +343,6 @@ document.addEventListener('DOMContentLoaded', function() {
         currentIndex: 0,
         totalSlides: 0,
         interval: null,
-        autoplayDelay: 7500, // 7.5 секунд
         isTransitioning: false,
         
         init() {
