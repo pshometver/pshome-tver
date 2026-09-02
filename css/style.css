@@ -1628,7 +1628,7 @@ button{
 
         white-space: normal;
         word-wrap: break-word;
-        hyphens: auto;
+        hyphens: none;
     }
 
     .header__banner-button {
