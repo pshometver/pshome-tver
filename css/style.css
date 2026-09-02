@@ -1514,7 +1514,7 @@ button{
 }
 
 .slider__slide:nth-child(1) {
-    background-image: url('../images/gta_VI_banner.png');
+    background-image: url('../images/gta_VI_banner.webp');
     /* Замените на вашу картинку */
 }
 
