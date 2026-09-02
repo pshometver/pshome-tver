@@ -77,21 +77,29 @@ const TELEGRAM_CONFIG = {
 // Функция для модального окна заявки
 function initApplicationModal() {
     const modal = document.getElementById('applicationModal');
-    const openBtn = document.querySelector('.header__banner-button');
+
+    // Находим ВСЕ кнопки "ОСТАВИТЬ ЗАЯВКУ"
+    const openBtns = document.querySelectorAll('.header__banner-button');
+
     const closeBtn = document.querySelector('.modal__close');
     const form = document.getElementById('applicationForm');
     const submitBtn = document.getElementById('submitButton');
 
     // Проверяем, что элементы найдены
-    if (!modal || !openBtn || !closeBtn || !form) {
+    if (!modal || openBtns.length === 0 || !closeBtn || !form) {
         console.error('Не найдены элементы модального окна');
         return;
     }
 
     // Открытие модального окна
-    openBtn.addEventListener('click', function() {
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
+    // Теперь обработчик устанавливается на КАЖДУЮ кнопку
+    openBtns.forEach(function(openBtn) {
+        openBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        });
     });
 
     // Закрытие модального окна
@@ -121,62 +129,89 @@ function initApplicationModal() {
 
     // Маска для телефона
     const phoneInput = document.getElementById('userPhone');
+
     if (phoneInput) {
         phoneInput.addEventListener('input', function(e) {
-            let x = e.target.value.replace(/\D/g, '').match(/(\d{0,1})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
-            e.target.value = '+7' + (x[2] ? ' (' + x[2] : '') + (x[3] ? ') ' + x[3] : '') + (x[4] ? '-' + x[4] : '') + (x[5] ? '-' + x[5] : '');
+            let x = e.target.value
+                .replace(/\D/g, '')
+                .match(/(\d{0,1})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
+
+            e.target.value =
+                '+7' +
+                (x[2] ? ' (' + x[2] : '') +
+                (x[3] ? ') ' + x[3] : '') +
+                (x[4] ? '-' + x[4] : '') +
+                (x[5] ? '-' + x[5] : '');
         });
     }
 
     // Обработка отправки формы
     form.addEventListener('submit', async function(event) {
         event.preventDefault();
-        
+
         const name = document.getElementById('userName').value.trim();
         const phone = document.getElementById('userPhone').value.trim();
         const agreement = document.getElementById('userAgreement').checked;
-        
+
         // Валидация
         if (!name) {
             alert('Пожалуйста, введите ваше имя');
             return;
         }
-        
+
         if (!phone || phone.length < 10) {
             alert('Пожалуйста, введите корректный номер телефона');
             return;
         }
-        
+
         if (!agreement) {
-            alert('Для отправки заявки необходимо согласие на обработку персональных данных');
+            alert(
+                'Для отправки заявки необходимо согласие на обработку персональных данных'
+            );
             return;
         }
-        
+
         // Показываем состояние загрузки
         if (submitBtn) {
             submitBtn.classList.add('loading');
             submitBtn.disabled = true;
         }
-        
+
         try {
             // Формируем сообщение для Telegram
-            const message = `🎮 *НОВАЯ ЗАЯВКА С САЙТА PSHOME*\n\n👤 *Имя:* ${name}\n📱 *Телефон:* ${phone}\n✅ *Согласие на обработку:* получено\n⏰ *Время заявки:* ${new Date().toLocaleString('ru-RU')}\n🌐 *Источник:* сайт pshome.ru`;
+            const message =
+                `🎮 *НОВАЯ ЗАЯВКА С САЙТА PSHOME*\n\n` +
+                `👤 *Имя:* ${name}\n` +
+                `📱 *Телефон:* ${phone}\n` +
+                `✅ *Согласие на обработку:* получено\n` +
+                `⏰ *Время заявки:* ${new Date().toLocaleString('ru-RU')}\n` +
+                `🌐 *Источник:* сайт pshome.ru`;
 
             // Отправляем в Telegram
             const response = await sendToTelegram(message);
-            
+
             if (response.ok) {
-                alert(`Спасибо, ${name}! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.`);
+                alert(
+                    `Спасибо, ${name}! Ваша заявка принята. ` +
+                    `Мы свяжемся с вами в ближайшее время.`
+                );
+
                 modal.style.display = 'none';
                 document.body.style.overflow = '';
                 form.reset();
             } else {
                 throw new Error('Ошибка отправки в Telegram');
             }
-            
+
         } catch (error) {
             console.error('Ошибка отправки:', error);
-            alert('Произошла ошибка при отправке заявки. Пожалуйста, позвоните нам напрямую по номеру 8 (904) 027-12-40');
+
+            alert(
+                'Произошла ошибка при отправке заявки. ' +
+                'Пожалуйста, позвоните нам напрямую по номеру ' +
+                '8 (904) 027-12-40'
+            );
+
         } finally {
             // Восстанавливаем кнопку
             if (submitBtn) {
