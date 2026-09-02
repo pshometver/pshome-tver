@@ -1482,6 +1482,48 @@ button{
     padding-bottom: 5px;
     
 }
+    
+    /* === КАРТОЧКИ ТОВАРОВ ДЛЯ ТЕЛЕФОНОВ === */
+    .price__cards {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 25px;
+        margin: 20px auto;
+        width: 100%;
+        max-width: 360px; /* Ограничиваем для телефонов */
+        padding: 0 10px;
+    }
+
+    .price__card {
+        width: 100%;
+        max-width: 340px;
+        margin: 0 auto;
+        padding: 10px 15px 15px 15px;
+    }
+
+    .price__title {
+        font-size: 1.1rem;
+        margin: 10px 0 15px 0;
+    }
+
+    .price__list {
+        min-width: auto !important;
+        width: 100%;
+        gap: 6px;
+    }
+
+    .price__item {
+        padding: 8px;
+        font-size: 13px;
+    }
+
+    .price__button {
+        padding: 10px 20px;
+        font-size: 11px;
+    }
+    
+    /* ... остальной код ... */
 }
 /* ===== СЛАЙДЕР ===== */
 .slider {
