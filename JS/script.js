@@ -77,7 +77,7 @@ const TELEGRAM_CONFIG = {
 // Функция для модального окна заявки
 function initApplicationModal() {
     const modal = document.getElementById('applicationModal');
-    const openBtn = document.querySelectorAll('.header__banner-button');
+    const openBtn = document.querySelector('.header__banner-button');
     const closeBtn = document.querySelector('.modal__close');
     const form = document.getElementById('applicationForm');
     const submitBtn = document.getElementById('submitButton');
