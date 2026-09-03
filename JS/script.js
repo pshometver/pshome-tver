@@ -473,37 +473,3 @@ document.addEventListener('DOMContentLoaded', function() {
     initApplicationModal();
     initRentalModals();
 });
-<div class="swiper" id="mainSlider">
-    <div class="swiper-wrapper">
-        <!-- Слайд 1 -->
-        <div class="swiper-slide">
-            <div class="slider__slide-content">
-                <h1 class="header__banner-text">Готовимся к выходу GTA&nbsp;VI</h1>
-                <button class="header__banner-button" aria-label="Оставить заявку на аренду">ОСТАВИТЬ ЗАЯВКУ</button>
-            </div>
-        </div>
-        
-        <!-- Слайд 2 -->
-        <div class="swiper-slide">
-            <div class="slider__slide-content">
-                <h1 class="header__banner-text">Аренда игровых приставок в&nbsp;Твери</h1>
-                <button class="header__banner-button" aria-label="Оставить заявку на аренду">ОСТАВИТЬ ЗАЯВКУ</button>
-            </div>
-        </div>
-        
-        <!-- Слайд 3 -->
-        <div class="swiper-slide">
-            <div class="slider__slide-content">
-                <h1 class="header__banner-text">Пополняем каталог новинками</h1>
-                <button class="header__banner-button" aria-label="Оставить заявку на аренду">ОСТАВИТЬ ЗАЯВКУ</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Кнопки навигации (стрелки) -->
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-
-    <!-- Точки (пагинация) -->
-    <div class="swiper-pagination"></div>
-</div>
