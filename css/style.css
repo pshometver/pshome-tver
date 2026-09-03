@@ -1572,15 +1572,6 @@ button{
     background-image: url('../images/banner-games.webp');
 }
 
-/* --- Затемнение (как у вас было) --- */
-.swiper-slide::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: 1;
-}
-
 /* --- Контент внутри слайда (ВАШ .slider__slide-content) --- */
 .slider__slide-content {
     position: relative;
