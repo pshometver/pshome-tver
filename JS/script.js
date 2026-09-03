@@ -368,6 +368,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initRentalModals();        // Формы аренды
 });
 ```js
+```js
 // ===== СМАРТ-СЛАЙДЕР =====
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -387,51 +388,41 @@ document.addEventListener('DOMContentLoaded', function () {
         init() {
             this.totalSlides = this.slides.length;
 
-            if (!this.track || this.totalSlides === 0) return;
+            if (!this.track || this.totalSlides === 0) {
+                return;
+            }
 
-            // =====================================================
-            // ПРЕДЗАГРУЗКА ВСЕХ ФОНОВЫХ ИЗОБРАЖЕНИЙ
-            // =====================================================
+            // Предзагружаем изображения
             this.preloadImages();
 
-            // =====================================================
-            // КЛОН ПЕРВОГО СЛАЙДА
-            // Нужен для плавного перехода:
-            // 1 → 2 → 1 → 2 → ...
-            // =====================================================
+            // Клонируем первый слайд
+            // Получаем:
+            // 1 → 2 → 1(клон)
             const firstClone = this.slides[0].cloneNode(true);
-            firstClone.classList.add('slider__slide--clone');
             this.track.appendChild(firstClone);
 
-            // =====================================================
-            // ТОЧКИ
-            // =====================================================
+            // Точки
             this.createDots();
             this.updateDots();
 
-            // =====================================================
-            // КНОПКИ
-            // =====================================================
+            // Кнопка "назад"
             if (this.prevBtn) {
                 this.prevBtn.addEventListener('click', () => {
                     this.prev();
                 });
             }
 
+            // Кнопка "вперёд"
             if (this.nextBtn) {
                 this.nextBtn.addEventListener('click', () => {
                     this.next();
                 });
             }
 
-            // =====================================================
-            // АВТОПЛЕЙ
-            // =====================================================
+            // Автоплей
             this.startAutoplay();
 
-            // =====================================================
-            // ПАУЗА ПРИ НАВЕДЕНИИ
-            // =====================================================
+            // Пауза при наведении
             this.track.addEventListener('mouseenter', () => {
                 this.stopAutoplay();
             });
@@ -440,9 +431,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 this.startAutoplay();
             });
 
-            // =====================================================
-            // КЛАВИАТУРА
-            // =====================================================
+            // Клавиатура
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'ArrowRight') {
                     this.next();
@@ -453,22 +442,25 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
 
-            // =====================================================
-            // СВАЙП
-            // =====================================================
+            // Свайп
             this.initSwipe();
         },
 
-        // =========================================================
-        // ПРЕДЗАГРУЗКА ФОНОВЫХ ИЗОБРАЖЕНИЙ
-        // =========================================================
+        // =====================================================
+        // ПРЕДЗАГРУЗКА ИЗОБРАЖЕНИЙ
+        // =====================================================
         preloadImages() {
             this.slides.forEach(slide => {
-                const background = getComputedStyle(slide).backgroundImage;
 
-                if (!background || background === 'none') return;
+                const background =
+                    getComputedStyle(slide).backgroundImage;
 
-                const match = background.match(/url\(["']?(.*?)["']?\)/);
+                if (!background || background === 'none') {
+                    return;
+                }
+
+                const match =
+                    background.match(/url\(["']?(.*?)["']?\)/);
 
                 if (match && match[1]) {
                     const img = new Image();
@@ -477,15 +469,18 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         },
 
-        // =========================================================
-        // СОЗДАНИЕ ТОЧЕК
-        // =========================================================
+        // =====================================================
+        // ТОЧКИ
+        // =====================================================
         createDots() {
-            if (!this.dotsContainer) return;
+            if (!this.dotsContainer) {
+                return;
+            }
 
             this.dotsContainer.innerHTML = '';
 
             for (let i = 0; i < this.totalSlides; i++) {
+
                 const dot = document.createElement('button');
 
                 dot.className = 'slider__dot';
@@ -504,11 +499,13 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         },
 
-        // =========================================================
-        // ОБНОВЛЕНИЕ ТОЧЕК
-        // =========================================================
+        // =====================================================
+        // АКТИВНАЯ ТОЧКА
+        // =====================================================
         updateDots() {
-            if (!this.dotsContainer) return;
+            if (!this.dotsContainer) {
+                return;
+            }
 
             const dots =
                 this.dotsContainer.querySelectorAll('.slider__dot');
@@ -521,23 +518,25 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         },
 
-        // =========================================================
-        // ПЕРЕХОД К СЛАЙДУ
-        // =========================================================
+        // =====================================================
+        // ПЕРЕХОД
+        // =====================================================
         goTo(index) {
-            if (this.isTransitioning) return;
 
-            if (index < 0 || index > this.totalSlides) return;
+            if (this.isTransitioning) {
+                return;
+            }
 
             this.isTransitioning = true;
 
+            // Обычный переход
             this.track.style.transition =
                 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
 
             this.track.style.transform =
                 `translateX(-${index * 100}%)`;
 
-            // Обычные слайды
+            // Если это настоящий слайд
             if (index < this.totalSlides) {
 
                 this.currentIndex = index;
@@ -550,68 +549,76 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
 
-            // =====================================================
-            // ПОСЛЕДНИЙ ШАГ:
-            // настоящий последний → КЛОН первого
-            //
-            // Пользователь видит плавно:
-            // 2 → 1
-            // =====================================================
+            // =================================================
+            // 2 → 1 (КЛОН)
+            // =================================================
             setTimeout(() => {
 
-                // После того как клон полностью показался,
-                // мгновенно возвращаемся на настоящий первый слайд.
+                // Мы уже показали клон первого слайда.
+                // Теперь незаметно возвращаемся
+                // на настоящий первый.
                 this.track.style.transition = 'none';
-                this.track.style.transform = 'translateX(0%)';
+                this.track.style.transform = 'translateX(0)';
 
                 this.currentIndex = 0;
                 this.updateDots();
 
-                // Даём браузеру применить reset,
-                // после чего снова включаем плавную анимацию.
+                // Включаем анимацию обратно
                 requestAnimationFrame(() => {
-                    requestAnimationFrame(() => {
+                    this.track.style.transition =
+                        'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
 
-                        this.track.style.transition =
-                            'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-
-                        this.isTransitioning = false;
-                    });
+                    this.isTransitioning = false;
                 });
 
             }, 600);
         },
 
-        // =========================================================
+        // =====================================================
         // ВПЕРЁД
-        // ВСЕГДА ДВИЖЕНИЕ ВПРАВО
-        // =========================================================
+        // =====================================================
         next() {
-            if (this.isTransitioning) return;
 
+            if (this.isTransitioning) {
+                return;
+            }
+
+            // Для двух слайдов:
+            //
+            // 0 → 1
+            // 1 → 2 (клон первого)
+            //
             this.goTo(this.currentIndex + 1);
         },
 
-        // =========================================================
+        // =====================================================
         // НАЗАД
-        // =========================================================
+        // =====================================================
         prev() {
-            if (this.isTransitioning) return;
 
+            if (this.isTransitioning) {
+                return;
+            }
+
+            // Если мы на первом слайде,
+            // просто переходим на второй.
             if (this.currentIndex === 0) {
-                // Если мы на первом слайде —
-                // показываем последний без обратного визуального
-                // скачка через временный переход.
-                this.track.style.transition = 'none';
+
+                this.currentIndex = this.totalSlides - 1;
+
+                this.track.style.transition =
+                    'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+
                 this.track.style.transform =
-                    `translateX(-${this.totalSlides * 100}%)`;
+                    `translateX(-${this.currentIndex * 100}%)`;
 
-                requestAnimationFrame(() => {
-                    this.track.style.transition =
-                        'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                this.updateDots();
 
-                    this.goTo(this.totalSlides - 1);
-                });
+                setTimeout(() => {
+                    this.isTransitioning = false;
+                }, 600);
+
+                this.isTransitioning = true;
 
                 return;
             }
@@ -619,10 +626,11 @@ document.addEventListener('DOMContentLoaded', function () {
             this.goTo(this.currentIndex - 1);
         },
 
-        // =========================================================
+        // =====================================================
         // АВТОПЛЕЙ
-        // =========================================================
+        // =====================================================
         startAutoplay() {
+
             this.stopAutoplay();
 
             this.interval = setInterval(() => {
@@ -630,28 +638,32 @@ document.addEventListener('DOMContentLoaded', function () {
             }, this.autoplayDelay);
         },
 
-        // =========================================================
+        // =====================================================
         // ОСТАНОВКА АВТОПЛЕЯ
-        // =========================================================
+        // =====================================================
         stopAutoplay() {
+
             if (this.interval) {
                 clearInterval(this.interval);
                 this.interval = null;
             }
         },
 
-        // =========================================================
-        // СВАЙП НА МОБИЛЬНЫХ
-        // =========================================================
+        // =====================================================
+        // СВАЙП
+        // =====================================================
         initSwipe() {
+
             let startX = 0;
             let isSwiping = false;
 
             this.track.addEventListener(
                 'touchstart',
                 (e) => {
+
                     startX = e.touches[0].clientX;
                     isSwiping = true;
+
                     this.stopAutoplay();
                 },
                 { passive: true }
@@ -660,7 +672,10 @@ document.addEventListener('DOMContentLoaded', function () {
             this.track.addEventListener(
                 'touchend',
                 (e) => {
-                    if (!isSwiping) return;
+
+                    if (!isSwiping) {
+                        return;
+                    }
 
                     isSwiping = false;
 
@@ -670,10 +685,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (Math.abs(diff) > 50) {
 
                         if (diff > 0) {
-                            // Свайп влево → следующий
+                            // Влево → следующий
                             this.next();
                         } else {
-                            // Свайп вправо → предыдущий
+                            // Вправо → предыдущий
                             this.prev();
                         }
                     }
@@ -688,3 +703,4 @@ document.addEventListener('DOMContentLoaded', function () {
     slider.init();
 });
 ```
+
