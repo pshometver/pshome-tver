@@ -288,183 +288,34 @@ function initRentalModal(deviceType, deviceName) {
 // ============================================================
 // ============================================================
 // ============================================================
-// 6. СЛАЙДЕР — С ЗАЦИКЛИВАНИЕМ И ПЛАВНЫМИ ПЕРЕХОДАМИ
 // ============================================================
-(function initSlider() {
-    const track = document.getElementById('sliderTrack');
-    const slides = document.querySelectorAll('.slider__slide');
-    const prevBtn = document.querySelector('.slider__btn--prev');
-    const nextBtn = document.querySelector('.slider__btn--next');
-    const dotsContainer = document.getElementById('sliderDots');
-
-    let currentIndex = 0;
-    const totalSlides = slides.length;
-    let isTransitioning = false;
-    let autoplayInterval = null;
-    const autoplayDelay = 12000;
-
-    // ==========================================================
-    // ПРОВЕРКА
-    // ==========================================================
-    if (!track || totalSlides === 0) {
-        console.error('Слайдер не найден');
-        return;
-    }
-
-    // ==========================================================
-    // СОЗДАНИЕ ТОЧЕК
-    // ==========================================================
-    function createDots() {
-        if (!dotsContainer) return;
-        dotsContainer.innerHTML = '';
-
-        for (let i = 0; i < totalSlides; i++) {
-            const dot = document.createElement('button');
-            dot.className = 'slider__dot';
-            dot.setAttribute('aria-label', `Перейти к слайду ${i + 1}`);
-            dot.dataset.index = i;
-            dot.addEventListener('click', () => goTo(i));
-            dotsContainer.appendChild(dot);
-        }
-    }
-
-    // ==========================================================
-    // ОБНОВЛЕНИЕ ТОЧЕК
-    // ==========================================================
-    function updateDots() {
-        if (!dotsContainer) return;
-        const dots = dotsContainer.querySelectorAll('.slider__dot');
-        dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentIndex);
+// SWIPER ИНИЦИАЛИЗАЦИЯ (С ВАШИМИ КНОПКАМИ И ТОЧКАМИ)
+// ============================================================
+document.addEventListener('DOMContentLoaded', function() {
+    if (document.getElementById('mainSlider')) {
+        const swiper = new Swiper('#mainSlider', {
+            loop: true,
+            autoplay: {
+                delay: 12000,
+                disableOnInteraction: false,
+            },
+            // ВАШИ КНОПКИ
+            navigation: {
+                nextEl: '.slider__btn--next',
+                prevEl: '.slider__btn--prev',
+            },
+            // ВАШИ ТОЧКИ
+            pagination: {
+                el: '.slider__dots',
+                clickable: true,
+                bulletClass: 'slider__dot',
+                bulletActiveClass: 'active',
+            },
+            speed: 600,
         });
+        console.log('✅ Swiper запущен!');
     }
-
-    // ==========================================================
-    // ПЕРЕХОД НА СЛАЙД
-    // ==========================================================
-    function goTo(index) {
-        if (isTransitioning) return;
-        if (index < 0 || index >= totalSlides) return;
-
-        isTransitioning = true;
-        currentIndex = index;
-
-        track.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-        track.style.transform = `translateX(-${index * 100}%)`;
-
-        updateDots();
-
-        setTimeout(() => {
-            isTransitioning = false;
-        }, 650);
-    }
-
-    // ==========================================================
-    // СЛЕДУЮЩИЙ / ПРЕДЫДУЩИЙ (С ЗАЦИКЛИВАНИЕМ)
-    // ==========================================================
-    function next() {
-        if (isTransitioning) return;
-        const nextIndex = (currentIndex + 1) % totalSlides;
-        goTo(nextIndex);
-    }
-
-    function prev() {
-        if (isTransitioning) return;
-        const prevIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-        goTo(prevIndex);
-    }
-
-    // ==========================================================
-    // АВТОПЛЕЙ
-    // ==========================================================
-    function startAutoplay() {
-        stopAutoplay();
-        autoplayInterval = setInterval(next, autoplayDelay);
-    }
-
-    function stopAutoplay() {
-        if (autoplayInterval) {
-            clearInterval(autoplayInterval);
-            autoplayInterval = null;
-        }
-    }
-
-    // ==========================================================
-    // СВАЙП НА МОБИЛЬНЫХ
-    // ==========================================================
-    function initSwipe() {
-        let startX = 0;
-        let isSwiping = false;
-
-        track.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-            isSwiping = true;
-            stopAutoplay();
-        }, { passive: true });
-
-        track.addEventListener('touchmove', (e) => {
-            if (!isSwiping) return;
-        }, { passive: true });
-
-        track.addEventListener('touchend', (e) => {
-            if (!isSwiping) return;
-            isSwiping = false;
-            const endX = e.changedTouches[0].clientX;
-            const diff = startX - endX;
-            if (Math.abs(diff) > 50) {
-                if (diff > 0) {
-                    next();
-                } else {
-                    prev();
-                }
-            }
-            startAutoplay();
-        }, { passive: true });
-    }
-
-    // ==========================================================
-    // ЗАПУСК
-    // ==========================================================
-    function init() {
-        // Устанавливаем начальную позицию
-        track.style.transform = 'translateX(0%)';
-
-        createDots();
-        updateDots();
-
-        // Кнопки
-        if (prevBtn) {
-            prevBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                prev();
-            });
-        }
-        if (nextBtn) {
-            nextBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                next();
-            });
-        }
-
-        // Клавиатура
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') prev();
-            if (e.key === 'ArrowRight') next();
-        });
-
-        // Автоплей
-        startAutoplay();
-
-        // Пауза при наведении
-        track.addEventListener('mouseenter', stopAutoplay);
-        track.addEventListener('mouseleave', startAutoplay);
-
-        // Свайп
-        initSwipe();
-    }
-
-    init();
-})();
+});
 
 // 7. ЗАПУСК ВСЕХ ФУНКЦИЙ
 // ============================================================
