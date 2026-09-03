@@ -1766,7 +1766,8 @@ button{
         width: 18px;
         height: 18px;
     }
- СТАНДАРТНЫЕ ТОЧКИ SWIPER — ЖЕЛТЫЕ
+ /* ==========================================================
+   СТАНДАРТНЫЕ ТОЧКИ SWIPER — ЖЕЛТЫЕ
    ========================================================== */
 
 .swiper-pagination {
@@ -1791,12 +1792,12 @@ button{
     cursor: pointer;
     transition: all 0.3s ease;
     opacity: 1 !important;
-    margin: 0 6px !important;
+    margin: 0 !important;
 }
 
 /* Точка при наведении */
 .swiper-pagination-bullet:hover {
-    background:rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.7);
 }
 
 /* Активная точка — ЖЕЛТАЯ */
@@ -1806,9 +1807,6 @@ button{
     transform: scale(1.2);
     box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
-
-
-
 
 
 
