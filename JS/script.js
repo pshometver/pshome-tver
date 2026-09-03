@@ -310,9 +310,6 @@ document.addEventListener('DOMContentLoaded', function() {
     clickable: true,
     bulletClass: 'slider__dot',
     bulletActiveClass: 'active',
-    renderBullet: function(index, className) {
-        return `<button class="${className}"></button>`;
-    }
 }
             speed: 600,
         });
