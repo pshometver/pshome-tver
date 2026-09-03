@@ -285,7 +285,8 @@ function initRentalModal(deviceType, deviceName) {
     });
 }
 
-// 6. СЛАЙДЕР
+// ============================================================
+// 6. СЛАЙДЕР — УПРОЩЕННАЯ ВЕРСИЯ С ПЛАВНЫМ ПЕРЕХОДОМ
 // ============================================================
 (function initSlider() {
     const slider = {
@@ -303,15 +304,16 @@ function initRentalModal(deviceType, deviceName) {
         isTransitioning: false,
 
         init() {
-            // Считаем ВСЕ слайды (включая клон)
             this.totalSlides = this.slides.length;
-            // Считаем оригинальные (без клона)
             this.originalCount = document.querySelectorAll('.slider__slide:not(.slider__slide--clone)').length;
 
             if (!this.track || this.totalSlides === 0) {
                 console.error('Слайдер не найден');
                 return;
             }
+
+            // Устанавливаем начальную позицию
+            this.track.style.transform = 'translateX(0%)';
 
             this.createDots();
             this.updateDots();
@@ -339,7 +341,6 @@ function initRentalModal(deviceType, deviceName) {
             if (!this.dotsContainer) return;
             this.dotsContainer.innerHTML = '';
 
-            // Точки ТОЛЬКО для оригинальных слайдов
             for (let i = 0; i < this.originalCount; i++) {
                 const dot = document.createElement('button');
                 dot.className = 'slider__dot';
@@ -354,9 +355,7 @@ function initRentalModal(deviceType, deviceName) {
             if (!this.dotsContainer) return;
             const dots = this.dotsContainer.querySelectorAll('.slider__dot');
             
-            // Определяем, какой индекс показывать в точках
             let dotIndex = this.currentIndex;
-            // Если мы на клоне (последний слайд) — показываем первую точку
             if (this.currentIndex >= this.originalCount) {
                 dotIndex = 0;
             }
@@ -368,33 +367,32 @@ function initRentalModal(deviceType, deviceName) {
 
         goTo(index) {
             if (this.isTransitioning) return;
-            // Разрешаем переход до последнего слайда (включая клон)
             if (index < 0 || index >= this.totalSlides) return;
 
             this.isTransitioning = true;
+            
+            // Плавный переход
             this.track.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
             this.track.style.transform = `translateX(-${index * 100}%)`;
 
             this.currentIndex = index;
             this.updateDots();
 
-            // Если дошли до клона (последний слайд)
+            // Если дошли до клона
             if (index === this.totalSlides - 1) {
                 setTimeout(() => {
                     // Убираем анимацию
                     this.track.style.transition = 'none';
-                    // Мгновенно переключаем на первый слайд
+                    // Переключаем на первый слайд
                     this.track.style.transform = 'translateX(0%)';
                     this.currentIndex = 0;
                     this.updateDots();
                     
-                    // Возвращаем анимацию
-                    requestAnimationFrame(() => {
-                        requestAnimationFrame(() => {
-                            this.track.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-                            this.isTransitioning = false;
-                        });
-                    });
+                    // Даем браузеру время на перерисовку
+                    setTimeout(() => {
+                        this.track.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                        this.isTransitioning = false;
+                    }, 50);
                 }, 600);
             } else {
                 setTimeout(() => {
@@ -412,7 +410,6 @@ function initRentalModal(deviceType, deviceName) {
             if (this.isTransitioning) return;
             
             if (this.currentIndex === 0) {
-                // Переход на последний оригинальный слайд (предпоследний в треке)
                 const lastOriginalIndex = this.originalCount - 1;
                 
                 this.track.style.transition = 'none';
@@ -420,12 +417,10 @@ function initRentalModal(deviceType, deviceName) {
                 this.currentIndex = lastOriginalIndex;
                 this.updateDots();
                 
-                requestAnimationFrame(() => {
-                    requestAnimationFrame(() => {
-                        this.track.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-                        this.isTransitioning = false;
-                    });
-                });
+                setTimeout(() => {
+                    this.track.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                    this.isTransitioning = false;
+                }, 50);
                 return;
             }
             
