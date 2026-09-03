@@ -1777,7 +1777,7 @@ button{
     transform: translateX(-50%);
     z-index: 10;
     display: flex;
-    gap: 20px; /* ← РАССТОЯНИЕ МЕЖДУ ТОЧКАМИ */
+    gap: 12px; /* ← РАССТОЯНИЕ МЕЖДУ ТОЧКАМИ */
     align-items: center;
     justify-content: center;
 }
@@ -1792,7 +1792,7 @@ button{
     cursor: pointer;
     transition: all 0.3s ease;
     opacity: 1 !important;
-    margin: 0 !important; /* Убираем стандартные отступы, используем gap */
+    margin: 6px !important; /* Убираем стандартные отступы, используем gap */
 }
 
 /* Активная точка — ЖЕЛТАЯ */
