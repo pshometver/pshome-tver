@@ -1767,7 +1767,46 @@ button{
         height: 18px;
     }
 }
+ СТАНДАРТНЫЕ ТОЧКИ SWIPER — ЖЕЛТЫЕ
+   ========================================================== */
 
+.swiper-pagination {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Обычные точки */
+.swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 1 !important;
+    margin: 0 !important;
+}
+
+/* Точка при наведении */
+.swiper-pagination-bullet:hover {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+/* Активная точка — ЖЕЛТАЯ */
+.swiper-pagination-bullet-active {
+    background: #FFD700 !important;
+    border-color: #FFD700 !important;
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
 
 
 
