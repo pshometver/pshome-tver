@@ -1792,7 +1792,7 @@ button{
     cursor: pointer;
     transition: all 0.3s ease;
     opacity: 1 !important;
-    margin: 0 !important;
+    margin: 5px;
 }
 
 /* Точка при наведении */
