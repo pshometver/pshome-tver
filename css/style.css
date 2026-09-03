@@ -1660,38 +1660,6 @@ button{
     stroke-linejoin: round;
 }
 
-/* --- Точки (ВАШИ .slider__dots) --- */
-.slider__dots {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    display: flex;
-    gap: 10px;
-}
-
-.slider__dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    padding: 0;
-}
-
-.slider__dot:hover {
-    background: rgba(255, 255, 255, 0.5);
-}
-
-.slider__dot.active {
-    background: #FFD700;
-    border-color: #FFD700;
-    transform: scale(1.2);
-}
-
 /* --- Адаптив (как у вас было) --- */
 @media screen and (max-width: 768px) {
     .swiper {
@@ -1785,8 +1753,8 @@ button{
 
 /* Обычные точки */
 .swiper-pagination-bullet {
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.4);
     border: 2px solid rgba(255, 255, 255, 0.2);
