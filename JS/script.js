@@ -290,6 +290,7 @@ function initRentalModal(deviceType, deviceName) {
 // ============================================================
 // ============================================================
 // SWIPER ИНИЦИАЛИЗАЦИЯ (С ВАШИМИ КНОПКАМИ И ТОЧКАМИ)
+// ============================================================
 document.addEventListener('DOMContentLoaded', function() {
     if (document.getElementById('mainSlider')) {
         const swiper = new Swiper('#mainSlider', {
@@ -303,12 +304,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 nextEl: '.slider__btn--next',
                 prevEl: '.slider__btn--prev',
             },
-            // ВАШИ ТОЧКИ
+            // ВАШИ ТОЧКИ — ДОБАВЛЯЕМ renderBullet
             pagination: {
                 el: '.slider__dots',
                 clickable: true,
                 bulletClass: 'slider__dot',
                 bulletActiveClass: 'active',
+                renderBullet: function(index, className) {
+                    return `<button class="${className}"></button>`;
+                }
             },
             speed: 600,
         });
