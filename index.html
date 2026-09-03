@@ -14,6 +14,7 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="PSHOME">
     
+    
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
         (function(m,e,t,r,i,k,a){
@@ -28,7 +29,11 @@
     <noscript><div><img src="https://mc.yandex.ru/watch/107255913" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
 
+    <!-- Подключаем Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
+    <!-- Подключаем Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <link rel="preload" href="images/venom.webp" as="image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -167,9 +172,44 @@
                     <!-- Индикаторы (точки) -->
                     <div class="slider__dots" id="sliderDots"></div>
                 </div>
+                            <div class="swiper" id="mainSlider">
+    <div class="swiper-wrapper">
+        <!-- Слайд 1 -->
+        <div class="swiper-slide">
+            <div class="slider__slide-content">
+                <h1 class="header__banner-text">Готовимся к выходу GTA&nbsp;VI</h1>
+                <button class="header__banner-button" aria-label="Оставить заявку на аренду">ОСТАВИТЬ ЗАЯВКУ</button>
+            </div>
+        </div>
+        
+        <!-- Слайд 2 -->
+        <div class="swiper-slide">
+            <div class="slider__slide-content">
+                <h1 class="header__banner-text">Аренда игровых приставок в&nbsp;Твери</h1>
+                <button class="header__banner-button" aria-label="Оставить заявку на аренду">ОСТАВИТЬ ЗАЯВКУ</button>
+            </div>
+        </div>
+        
+        <!-- Слайд 3 -->
+        <div class="swiper-slide">
+            <div class="slider__slide-content">
+                <h1 class="header__banner-text">Пополняем каталог новинками</h1>
+                <button class="header__banner-button" aria-label="Оставить заявку на аренду">ОСТАВИТЬ ЗАЯВКУ</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Кнопки навигации (стрелки) -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+
+    <!-- Точки (пагинация) -->
+    <div class="swiper-pagination"></div>
+</div>
                         </div>
                     </div>
                 </section>
+                
                 <section class="header__bot" aria-labelledby="features-heading">
                     <div class="container">
                         <div class="header__icon">
