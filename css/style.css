@@ -1797,7 +1797,7 @@ button{
 
 /* Точка при наведении */
 .swiper-pagination-bullet:hover {
-    background: yellow;
+    background:rgba(255, 255, 255, 0.7);
 }
 
 /* Активная точка — ЖЕЛТАЯ */
