@@ -306,14 +306,9 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             // ВАШИ ТОЧКИ — ДОБАВЛЯЕМ renderBullet
             pagination: {
-                el: '.slider__dots',
-                clickable: true,
-                bulletClass: 'slider__dot',
-                bulletActiveClass: 'active',
-                renderBullet: function(index, className) {
-                    return `<button class="${className}"></button>`;
-                }
-            },
+    el: '.swiper-pagination',
+    clickable: true,
+},
             speed: 600,
         });
         console.log('✅ Swiper запущен!');
