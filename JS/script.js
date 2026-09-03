@@ -311,10 +311,6 @@ function initRentalModal(deviceType, deviceName) {
                 return;
             }
 
-            this.firstClone = this.slides[0].cloneNode(true);
-            this.firstClone.classList.add('slider__slide--clone');
-            this.track.appendChild(this.firstClone);
-
             this.createDots();
             this.updateDots();
             this.startAutoplay();
