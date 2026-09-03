@@ -287,7 +287,8 @@ function initRentalModal(deviceType, deviceName) {
 
 // ============================================================
 // ============================================================
-// 6. СЛАЙДЕР — ПРОСТАЯ ВЕРСИЯ (ВПЕРЕД-НАЗАД)
+// ============================================================
+// 6. СЛАЙДЕР — С ЗАЦИКЛИВАНИЕМ И ПЛАВНЫМИ ПЕРЕХОДАМИ
 // ============================================================
 (function initSlider() {
     const track = document.getElementById('sliderTrack');
@@ -301,6 +302,14 @@ function initRentalModal(deviceType, deviceName) {
     let isTransitioning = false;
     let autoplayInterval = null;
     const autoplayDelay = 12000;
+
+    // ==========================================================
+    // ПРОВЕРКА
+    // ==========================================================
+    if (!track || totalSlides === 0) {
+        console.error('Слайдер не найден');
+        return;
+    }
 
     // ==========================================================
     // СОЗДАНИЕ ТОЧЕК
@@ -347,20 +356,22 @@ function initRentalModal(deviceType, deviceName) {
 
         setTimeout(() => {
             isTransitioning = false;
-        }, 600);
+        }, 650);
     }
 
     // ==========================================================
-    // СЛЕДУЮЩИЙ / ПРЕДЫДУЩИЙ
+    // СЛЕДУЮЩИЙ / ПРЕДЫДУЩИЙ (С ЗАЦИКЛИВАНИЕМ)
     // ==========================================================
     function next() {
         if (isTransitioning) return;
-        goTo(currentIndex + 1);
+        const nextIndex = (currentIndex + 1) % totalSlides;
+        goTo(nextIndex);
     }
 
     function prev() {
         if (isTransitioning) return;
-        goTo(currentIndex - 1);
+        const prevIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        goTo(prevIndex);
     }
 
     // ==========================================================
@@ -391,14 +402,21 @@ function initRentalModal(deviceType, deviceName) {
             stopAutoplay();
         }, { passive: true });
 
+        track.addEventListener('touchmove', (e) => {
+            if (!isSwiping) return;
+        }, { passive: true });
+
         track.addEventListener('touchend', (e) => {
             if (!isSwiping) return;
             isSwiping = false;
             const endX = e.changedTouches[0].clientX;
             const diff = startX - endX;
             if (Math.abs(diff) > 50) {
-                if (diff > 0) next();
-                else prev();
+                if (diff > 0) {
+                    next();
+                } else {
+                    prev();
+                }
             }
             startAutoplay();
         }, { passive: true });
@@ -408,19 +426,25 @@ function initRentalModal(deviceType, deviceName) {
     // ЗАПУСК
     // ==========================================================
     function init() {
-        if (!track || totalSlides === 0) {
-            console.error('Слайдер не найден');
-            return;
-        }
-
         // Устанавливаем начальную позицию
         track.style.transform = 'translateX(0%)';
 
         createDots();
         updateDots();
 
-        if (prevBtn) prevBtn.addEventListener('click', prev);
-        if (nextBtn) nextBtn.addEventListener('click', next);
+        // Кнопки
+        if (prevBtn) {
+            prevBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                prev();
+            });
+        }
+        if (nextBtn) {
+            nextBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                next();
+            });
+        }
 
         // Клавиатура
         document.addEventListener('keydown', (e) => {
