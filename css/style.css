@@ -1777,7 +1777,7 @@ button{
     transform: translateX(-50%);
     z-index: 10;
     display: flex;
-    gap: 12px; /* ← РАССТОЯНИЕ МЕЖДУ ТОЧКАМИ */
+    gap: 20px; /* ← РАССТОЯНИЕ МЕЖДУ ТОЧКАМИ */
     align-items: center;
     justify-content: center;
 }
