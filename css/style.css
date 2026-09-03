@@ -1525,23 +1525,28 @@ button{
     
     /* ... остальной код ... */
 }
-/* ===== СЛАЙДЕР ===== */
-.slider {
-    position: relative;
+/* ==========================================================
+   SWIPER — СОХРАНЯЕМ ВНЕШНИЙ ВИД ВАШЕГО СЛАЙДЕРА
+   ========================================================== */
+
+/* --- Контейнер слайдера (как у вас было) --- */
+.swiper {
     width: 100%;
-    height: 100%;
+    height: 400px;
     overflow: hidden;
+    position: relative;
     border-radius: 12px;
 }
 
-.slider__track {
+/* --- Трек (как был .slider__track) --- */
+.swiper-wrapper {
     display: flex;
     width: 100%;
     height: 100%;
-    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.slider__slide {
+/* --- Каждый слайд (как был .slider__slide) --- */
+.swiper-slide {
     min-width: 100%;
     height: 400px;
     display: flex;
@@ -1554,30 +1559,73 @@ button{
     position: relative;
 }
 
-/* Фоны для слайдов */
-.slider__slide:nth-child(2) {
+/* --- Фоны слайдов (как у вас было) --- */
+.swiper-slide[data-swiper-slide-index="0"] {
+    background-image: url('../images/gta_VI_banner.webp');
+}
+
+.swiper-slide[data-swiper-slide-index="1"] {
     background-image: url('../images/venom.webp');
 }
 
-.slider__slide:nth-child(1) {
-    background-image: url('../images/gta_VI_banner.webp');
-    /* Замените на вашу картинку */
+.swiper-slide[data-swiper-slide-index="2"] {
+    background-image: url('../images/banner-games.webp');
 }
 
-
-@supports not (background-image: url('../images/venom.webp')) {
-    .slider__slide:nth-child(1) {
-        background-image: url('../images/venom.png');
-    }
+/* --- Затемнение (как у вас было) --- */
+.swiper-slide::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
 }
 
+/* --- Контент внутри слайда (ВАШ .slider__slide-content) --- */
 .slider__slide-content {
     position: relative;
     z-index: 2;
     text-align: center;
+    padding: 20px;
 }
 
-/* Кнопки навигации */
+/* --- Заголовок (ВАШ .header__banner-text) --- */
+.header__banner-text {
+    color: rgb(255, 255, 255);
+    font-size: 3.3rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,1);
+    font-weight: bold;
+    white-space: normal;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
+}
+
+/* --- Кнопка (ВАША .header__banner-button) --- */
+.header__banner-button {
+    background: linear-gradient(135deg, #FFD700 0%, #FFD700 20%, #fda500 100%);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+    border: none;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 12px 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 1px;
+    color: #000;
+}
+
+.header__banner-button:hover {
+    background: linear-gradient(135deg, rgb(255, 224, 51) 0%, #FFB347 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.6);
+}
+
+/* --- Кнопки навигации (ВАШИ .slider__btn) --- */
 .slider__btn {
     position: absolute;
     top: 50%;
@@ -1611,7 +1659,17 @@ button{
     right: 20px;
 }
 
-/* Точки-индикаторы */
+.slider__btn svg {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: white;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* --- Точки (ВАШИ .slider__dots) --- */
 .slider__dots {
     position: absolute;
     bottom: 20px;
@@ -1643,39 +1701,33 @@ button{
     transform: scale(1.2);
 }
 
-/* Адаптив для мобильных */
+/* --- Адаптив (как у вас было) --- */
 @media screen and (max-width: 768px) {
+    .swiper {
+        height: auto;
+        min-height: 200px;
+        max-height: 400px;
+    }
 
-    .slider__slide {
+    .swiper-slide {
         height: 300px;
-        width: 100%;
-        box-sizing: border-box;
-        padding: 0 55px; /* оставляем место для стрелок */
+        padding: 0 55px;
     }
 
     .slider__slide-content {
         width: 100%;
         max-width: 600px;
-        box-sizing: border-box;
         text-align: center;
     }
 
     .header__banner-text {
-        width: 100%;
-        max-width: 100%;
-        margin: 0 0 25px 0;
-
         font-size: 24px;
         line-height: 1.3;
-
+        margin-bottom: 25px;
         white-space: normal;
         word-wrap: break-word;
         hyphens: none;
-    }
-
-    .header__banner-button {
-        max-width: 100%;
-        white-space: normal;
+        padding: 0 10px;
     }
 
     .slider__btn {
@@ -1698,13 +1750,9 @@ button{
 }
 
 @media screen and (max-width: 576px) {
-
-    .slider__slide {
+    .swiper-slide {
         height: 250px;
         padding: 0 45px;
-    }
-
-    .slider__slide-content {
     }
 
     .header__banner-text {
