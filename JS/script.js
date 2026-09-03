@@ -286,6 +286,7 @@ function initRentalModal(deviceType, deviceName) {
 }
 
 // ============================================================
+// ============================================================
 // 6. СЛАЙДЕР
 // ============================================================
 (function initSlider() {
@@ -301,15 +302,20 @@ function initRentalModal(deviceType, deviceName) {
         interval: null,
         autoplayDelay: 12000,
         isTransitioning: false,
-        firstClone: null,
 
         init() {
-            this.totalSlides = this.slides.length;
+            // Считаем ТОЛЬКО оригинальные слайды (без клона)
+            this.totalSlides = document.querySelectorAll('.slider__slide:not(.slider__slide--clone)').length;
 
             if (!this.track || this.totalSlides === 0) {
                 console.error('Слайдер не найден');
                 return;
             }
+
+            // =============================================
+            // КЛОН БОЛЬШЕ НЕ СОЗДАЕТСЯ ЧЕРЕЗ JS
+            // ОН УЖЕ ЕСТЬ В HTML
+            // =============================================
 
             this.createDots();
             this.updateDots();
@@ -337,6 +343,7 @@ function initRentalModal(deviceType, deviceName) {
             if (!this.dotsContainer) return;
             this.dotsContainer.innerHTML = '';
 
+            // Точки только для оригинальных слайдов
             for (let i = 0; i < this.totalSlides; i++) {
                 const dot = document.createElement('button');
                 dot.className = 'slider__dot';
@@ -372,6 +379,7 @@ function initRentalModal(deviceType, deviceName) {
                 return;
             }
 
+            // Если дошли до клона (последний слайд) — возвращаемся на первый
             setTimeout(() => {
                 this.track.style.transition = 'none';
                 this.track.style.transform = 'translateX(0%)';
@@ -394,6 +402,7 @@ function initRentalModal(deviceType, deviceName) {
         prev() {
             if (this.isTransitioning) return;
             if (this.currentIndex === 0) {
+                // Переход на последний оригинальный слайд
                 this.track.style.transition = 'none';
                 this.track.style.transform = `translateX(-${(this.totalSlides - 1) * 100}%)`;
                 this.currentIndex = this.totalSlides - 1;
