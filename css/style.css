@@ -533,6 +533,8 @@ button{
     position: relative;
     animation: modalShow 0.4s ease;
     border: 1px solid rgba(255, 255, 255, 0.2);
+    max-height: 92vh;         /* ← главное ограничение */
+    overflow-y: auto;         /* ← главный скролл */
 }
 
 @keyframes modalShow {
