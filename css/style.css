@@ -1564,11 +1564,11 @@ button{
     background-image: url('../images/gta_VI_banner.webp');
 }
 
-.swiper-slide[data-swiper-slide-index="1"] {
+.swiper-slide[data-swiper-slide-index="2"] {
     background-image: url('../images/venom.webp');
 }
 
-.swiper-slide[data-swiper-slide-index="2"] {
+.swiper-slide[data-swiper-slide-index="1"] {
     background-image: url('../images/кратос.png');
 }
 
