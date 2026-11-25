@@ -1,53 +1,79 @@
-// ============================================================
-// 1. ИГРЫ — ПОКАЗАТЬ / СКРЫТЬ
-// ============================================================
-document.addEventListener('DOMContentLoaded', function() {
-    const showMoreBtn = document.getElementById('showMoreBtn');
-    const gamesContainer = document.querySelector('.games__container');
-    const allGames = document.querySelectorAll('.games__game');
-    const hiddenGames = document.querySelectorAll('.games__game--hidden');
-    
-    function getVisibleCount() {
-        return window.innerWidth <= 768 ? 6 : 5;
-    }
-    
-    function updateGamesVisibility(showAll = false) {
-        const visibleCount = getVisibleCount();
-        
-        allGames.forEach((game, index) => {
-            if (index < visibleCount) {
-                game.style.display = '';
-                game.classList.remove('games__game--hidden');
-            } else {
-                if (showAll) {
-                    game.style.display = '';
-                    game.classList.remove('games__game--hidden');
-                } else {
-                    game.style.display = 'none';
-                    game.classList.add('games__game--hidden');
-                }
-            }
-        });
-        
-        if (showAll) {
-            showMoreBtn.textContent = 'Скрыть';
-        } else {
-            showMoreBtn.textContent = 'Показать еще';
-        }
-    }
-    
-    updateGamesVisibility(false);
-    
-    window.addEventListener('resize', function() {
-        const isShowingAll = showMoreBtn.textContent === 'Скрыть';
-        if (!isShowingAll) {
-            updateGamesVisibility(false);
-        }
+document.addEventListener('DOMContentLoaded', function () {
+    const button = document.getElementById('showMoreBtn');
+    const container = document.querySelector('.games__container');
+    if (!button || !container) return;
+
+    const games = [...container.querySelectorAll('.games__game')];
+    const text = button.querySelector('.games__button-text');
+    const mobile = window.matchMedia('(max-width: 768px)');
+    const duration = 250;
+    let expanded = false, animating = false, timer, frame;
+
+    function updateGames(showAll) {
+    const count = mobile.matches
+        ? (showAll ? 18 : 6)
+        : (showAll ? games.length : 5);
+
+    games.forEach((game, i) => {
+        const visible = i < count;
+
+        game.classList.toggle('games__game--hidden', !visible);
+        game.style.display = visible ? '' : 'none';
     });
-    
-    showMoreBtn.addEventListener('click', function() {
-        const isShowingAll = this.textContent === 'Скрыть';
-        updateGamesVisibility(!isShowingAll);
+}
+
+    function updateButton() {
+        if (text) text.textContent = expanded ? 'Скрыть' : 'Показать ещё';
+        button.setAttribute('aria-expanded', String(expanded));
+    }
+
+    function finish() {
+        clearTimeout(timer);
+        cancelAnimationFrame(frame);
+        container.removeEventListener('transitionend', onEnd);
+        container.style.transition = 'none';
+        updateGames(expanded);
+        container.style.height = '';
+        container.style.overflow = '';
+        container.style.transition = '';
+        updateButton();
+        button.disabled = false;
+        animating = false;
+    }
+
+    function onEnd(event) {
+        if (event.target === container && event.propertyName === 'height') finish();
+    }
+
+    updateGames(false);
+    updateButton();
+    mobile.addEventListener('change', finish);
+
+    button.addEventListener('click', () => {
+        if (animating) return;
+        const start = container.getBoundingClientRect().height;
+        expanded = !expanded;
+        animating = true;
+        button.disabled = true;
+        container.style.transition = 'none';
+        container.style.height = 'auto';
+        updateGames(expanded);
+        const end = container.getBoundingClientRect().height;
+        if (!expanded) updateGames(true);
+        container.style.height = `${start}px`;
+        container.style.overflow = 'hidden';
+        updateButton();
+        if (Math.abs(start - end) < 1 || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            finish();
+            return;
+        }
+        container.getBoundingClientRect();
+        container.addEventListener('transitionend', onEnd);
+        frame = requestAnimationFrame(() => {
+            container.style.transition = `height ${duration}ms ease-in-out`;
+            container.style.height = `${end}px`;
+            timer = setTimeout(finish, duration + 100);
+        });
     });
 });
 
