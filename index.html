@@ -31,15 +31,17 @@
 
     <!-- Подключаем Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
+    
     <!-- Подключаем Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
 
     <link rel="preload" href="images/venom.webp" as="image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="icon" type="image/png" sizes="32x32" href="https://pshome-tver.ru/favicon.png">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pshome-atmosphere.css?v=1">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <script type="application/ld+json">
@@ -62,81 +64,186 @@
 <body>
     <div class="wrapper">
             <header class="header" role="banner">
-                        <div class="header__top"> 
-                                <div class="container">
-                                    <div class="header__mobile-container">
-                                        <a href="/" class="header__logo logo exit1" aria-label="PSHOME - На главную">
-                                            <picture>
-                                                <source srcset="images/logo.webp" type="image/webp">
-                                                <source srcset="images/logo.png" type="image/png">
-                                                <img src="images/logo.png" alt="PSHOME логотип" width="35" height="35">
-                                            </picture>
-                                            <span class="header__logo-text">PSHOME</span>
-                                        </a>
-                                        <div class="header__mobile">
-                                        <a href="" class="header__logo logo exit" aria-label="PSHOME - На главную">
-                                            <picture>
-                                                <source srcset="images/logo.webp" type="image/webp">
-                                                <source srcset="images/logo.png" type="image/png">
-                                                <img src="images/logo.png" alt="PSHOME логотип" width="35" height="35">
-                                            </picture>
-                                            <span class="header__logo-text">PSHOME</span>
-                                        </a>
-                                            <address class="header__addres">
-                                                    <img src="shapka/address.svg" alt="иконка address" width="30px">
-                                                    г. Тверь, ул. <br> 1-я Силикатная, д. 7
-                                            </address>
-                                            <a href="tel:89955371240" class="header__tell" alt="contact number">
-                                                <img src="footer/phone-call.svg" alt="иконка address" width="30px">
-                                                <span class="phone__mobile">Позвонить нам прямо сейчас
-                                                </span>
-                                            </a>
-                                            <a href="https://t.me/PsHomeTver" target="_blank" class="header__tg rel="noopener noreferrer" aria-label="Написать в Telegram">
-                                                <img class="footer__left-telegram" src="footer/telegram.svg" alt="иконка telegram" width="30px">
-                                                <span class="telegram__phone">Написать нам в Telegram</span>
-                                            </a>     
-                                        </div>
-                                    </div>
-                                    <div class="header__top-inner">
-                                        <a href="/" class="header__logo logo" aria-label="PSHOME - На главную">
-                                            <picture>
-                                                <source srcset="images/logo.webp" type="image/webp">
-                                                <source srcset="images/logo.png" type="image/png">
-                                                <img src="images/logo.png" alt="PSHOME логотип" width="40" height="40">
-                                            </picture>
-                                            <span class="header__logo-text">PSHOME</span>
-                                            
-                                        </a>
-                                        <nav class="header__nav" aria-label="Основная навигация">
-                                            <ul class="header__nav-list">
-                                                <li class="header__nav-item">
-                                                    <a href="#price">ЦЕНА АРЕНДЫ</a>
-                                                </li>
-                                                <li class="header__nav-item">
-                                                    <a href="#games">ИГРЫ</a>
-                                                </li>
-                                                <li class="header__nav-item">
-                                                    <a href="#aboutus">О НАС</a>
-                                                </li>
-                                            </ul>
-                                        </nav>
-                                        <div class="header__user-nav">
-                                            <address class="header__addres">
-                                                <img src="shapka/address.svg" alt="иконка address" width="30px">
-                                                г. Тверь, ул. <br> 1-я Силикатная, д. 7
-                                            </address>
+                        
+<div class="header__top">
+    <div class="container">
 
-                                            <a href="tel:89955371240" class="header__tell" alt="contact number">8 (995) 537-12-40</a>
-                                            
-                                            <div class="header__messengers">
-                                                <a href="https://t.me/PsHomeTver" target="_blank" rel="noopener noreferrer" aria-label="Написать в Telegram">
-                                                    <img class="footer__left-telegram" src="footer/telegram.svg" alt="иконка telegram" width="30px">
-                                                </a> 
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+        <!-- МОБИЛЬНАЯ ШАПКА -->
+        <div class="header__mobile-container">
+
+            <a href="/" class="header__logo logo exit1"
+               aria-label="PSHOME - На главную">
+
+                <picture>
+                    <source srcset="images/logo.webp" type="image/webp">
+                    <source srcset="images/logo.png" type="image/png">
+                    <img src="images/logo.png"
+                         alt="PSHOME логотип"
+                         width="35"
+                         height="35">
+                </picture>
+
+                <span class="header__logo-text">
+                    PS<span>HOME</span>
+                </span>
+            </a>
+
+            <div class="header__mobile">
+
+                <a href="/" class="header__logo logo exit"
+                   aria-label="PSHOME - На главную">
+
+                    <picture>
+                        <source srcset="images/logo.webp" type="image/webp">
+                        <source srcset="images/logo.png" type="image/png">
+                        <img src="images/logo.png"
+                             alt="PSHOME логотип"
+                             width="35"
+                             height="35">
+                    </picture>
+
+                    <span class="header__logo-text">
+                        PS<span>HOME</span>
+                    </span>
+                </a>
+
+                <!-- Адрес -->
+                <address class="header__addres">
+                    <img src="shapka/address.svg"
+                         alt=""
+                         width="20"
+                         height="20">
+                    <span>г. Тверь</span>
+                </address>
+
+                <!-- Телефон -->
+                <a href="tel:+79955371240" class="header__tell">
+                    <img src="footer/phone-call.svg"
+                         alt=""
+                         width="20"
+                         height="20">
+
+                    <span class="phone__mobile">
+                        Позвонить нам прямо сейчас
+                    </span>
+                </a>
+
+                <!-- Telegram -->
+                <a href="https://t.me/PsHomeTver"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="header__tg"
+                   aria-label="Написать в Telegram">
+
+                    <img class="footer__left-telegram"
+                         src="footer/telegram.svg"
+                         alt=""
+                         width="30"
+                         height="30">
+
+                    <span class="telegram__phone">
+                        Написать нам в Telegram
+                    </span>
+                </a>
+
+            </div>
+        </div>
+
+        <!-- КОМПЬЮТЕРНАЯ ШАПКА -->
+        <div class="header__top-inner">
+
+            <!-- Логотип -->
+            <a href="/" class="header__logo logo"
+               aria-label="PSHOME - На главную">
+
+                <picture>
+                    <source srcset="images/logo.webp" type="image/webp">
+                    <source srcset="images/logo.png" type="image/png">
+                    <img src="images/logo.png"
+                         alt="PSHOME логотип"
+                         width="40"
+                         height="40">
+                </picture>
+
+                <span class="header__logo-text">
+                    PS<span>HOME</span>
+                </span>
+            </a>
+
+            <!-- Навигация -->
+            <nav class="header__nav"
+                 aria-label="Основная навигация">
+
+                <ul class="header__nav-list">
+
+                    <li class="header__nav-item">
+                        <a href="#price">ЦЕНА АРЕНДЫ</a>
+                    </li>
+
+                    <li class="header__nav-item">
+                        <a href="#games">ИГРЫ</a>
+                    </li>
+
+                    <li class="header__nav-item">
+                        <a href="#aboutus">О НАС</a>
+                    </li>
+
+                    <li class="header__nav-item">
+                        <a href="">КУПИТЬ ПРИСТАВКУ</a>
+                    </li>
+
+                </ul>
+            </nav>
+
+            <!-- Контакты -->
+            <div class="header__user-nav">
+
+                <!-- Город -->
+                <address class="header__addres">
+                    <img src="shapka/address.svg"
+                         alt=""
+                         width="20"
+                         height="20">
+                    <span>г. Тверь</span>
+                </address>
+
+                <!-- Телефон -->
+                <a href="tel:+79955371240"
+                   class="header__tell">
+
+                    <img src="footer/phone-call.svg"
+                         alt=""
+                         class="header__phone-icon"
+                         width="20"
+                         height="20">
+
+                    <span>8 (995) 537-12-40</span>
+                </a>
+
+                <!-- Telegram -->
+                <div class="header__messengers">
+
+                    <a href="https://t.me/PsHomeTver"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="Написать в Telegram">
+
+                        <img class="footer__left-telegram"
+                             src="footer/telegram.svg"
+                             alt=""
+                             width="30"
+                             height="30">
+
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
                 <section class="header__body" aria-labelledby="main-heading">
                     <div class="container">
                         <div class="header__banner">
@@ -179,31 +286,111 @@
                     </div>
                 </section>
                 
-                <section class="header__bot" aria-labelledby="features-heading">
-                    <div class="container">
-                        <div class="header__icon">
-                            <ul class="header__icon-list">
-                                <li class="header__icon-item">
-                                    <img src="images/icons/без-залога.png" alt="icon">
-                                    <span class="span">  БЕЗ ЗАЛОГА</span>
-                                </li>
-                                <li class="header__icon-item">
-                                    <img src="images/icons/доставка.png" alt="icon">
-                                    <span class="span"> БЕСПЛАТНАЯ ДОСТАВКА <br>
-                                    ОТ 3 ДНЕЙ</span>
-                                </li>
-                                <li class="header__icon-item">
-                                    <img src="images/icons/оплата.png" alt="icon">
-                                    <span class="span"> ОПЛАТА НАЛИЧНЫМИ <BR>И ПЕРЕВОДОМ</span>
-                                </li>
-                                <li class="header__icon-item">
-                                    <img src="images/icons/скидки.png" alt="icon">
-                                    <span class="span">СКИДКИ ПОСТОЯННЫМ КЛИЕНТАМ</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
+                
+<section class="header__bot" aria-label="Преимущества аренды">
+    <div class="container">
+        <div class="header__icon">
+            <ul class="header__icon-list">
+
+                <!-- БЕЗ ЗАЛОГА -->
+                <li class="header__icon-item">
+                    <svg viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="1.8"
+                         stroke-linecap="round"
+                         stroke-linejoin="round"
+                         aria-hidden="true">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <path d="m9 12 2 2 4-4"/>
+                    </svg>
+                    <span class="span">БЕЗ ЗАЛОГА</span>
+                </li>
+
+                <!-- БЕСПЛАТНАЯ ДОСТАВКА -->
+                <li class="header__icon-item">
+                    
+<svg
+    viewBox="0 0 36 24"
+    width="58"
+    height="42"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.8"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true">
+
+    <!-- Удлинённый кузов -->
+    <path d="M7 5h17v13H7z"/>
+
+    <!-- Кабина -->
+    <path d="M24 9h5l5 5v4H24z"/>
+
+    <!-- Окно кабины -->
+    <path d="M27 10v4h6"/>
+
+    <!-- Колёса -->
+    <circle cx="12" cy="19" r="2.5"/>
+    <circle cx="29" cy="19" r="2.5"/>
+
+    <!-- Линии движения -->
+    <path d="M2 9h9"/>
+    <path d="M1 13h8"/>
+    <path d="M3 16h6"/>
+
+</svg>
+
+                    <span class="span">
+                        БЕСПЛАТНАЯ <br>ДОСТАВКА
+                        <br>ОТ 3 ДНЕЙ
+                    </span>
+                </li>
+
+                <!-- ОПЛАТА -->
+                <li class="header__icon-item">
+                    <svg viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="1.8"
+                         stroke-linecap="round"
+                         stroke-linejoin="round"
+                         aria-hidden="true">
+                        <rect x="2" y="5" width="20" height="14" rx="2"/>
+                        <path d="M2 10h20"/>
+                        <path d="M6 15h4"/>
+                    </svg>
+                    <span class="span">
+                        ОПЛАТА <br>НАЛИЧНЫМИ
+                        <br>И ПЕРЕВОДОМ
+                    </span>
+                </li>
+
+                <!-- СКИДКИ -->
+                <li class="header__icon-item">
+                    <svg viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="1.8"
+                         stroke-linecap="round"
+                         stroke-linejoin="round"
+                         aria-hidden="true">
+                        <path d="M12 2 14.6 4.1 18 4l.6 3.4L21 10l-2.4 2.6L18 16l-3.4-.1L12 18l-2.6-2.1L6 16l-.6-3.4L3 10l2.4-2.6L6 4l3.4.1L12 2z"/>
+                        <path d="m9 13 6-6"/>
+                        <circle cx="9" cy="8" r="1"/>
+                        <circle cx="15" cy="12" r="1"/>
+                    </svg>
+                    <span class="span">
+                        СКИДКИ<br> ПОСТОЯННЫМ<br>
+                        КЛИЕНТАМ
+                    </span>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</section>
+
             </header>
             <main class="main" role="main">
                 <section class="body__price" id="price" aria-labelledby="price-heading">
@@ -212,23 +399,23 @@
                         <div class="price__cards">
                             <article class="price__card">
                                 <picture>
-                                    <source srcset="images/catalog/ps4.webp" type="image/webp">
+                                    <!-- <source srcset="images/catalog/ps4.webp" type="image/webp"> -->
                                     <source srcset="images/catalog/ps4.png" type="image/png">
                                     <img class="price__img-ps4" src="images/catalog/ps4.png" alt="PlayStation 4">
                                 </picture>
                                 <h3 class="price__title"> Игровая приставка Sony PlayStation 4</h3>
                                 <dl class="price__list">
                                     <div class="price__item">
-                                        <dt class="price__item-ps4">1 сутки</dt>
+                                        <dt class="price__item-ps4">Первые сутки</dt>
                                         <dd class="price__item-ps4 bold4">800 ₽</dd>
                                     </div>
                                     <div class="price__item">
-                                        <dt class="price__item-ps4">2 сутки</dt>
-                                        <dd class="price__item-ps4 bold4">1500 ₽</dd>
+                                        <dt class="price__item-ps4">Вторые сутки</dt>
+                                        <dd class="price__item-ps4 bold4">700 ₽</dd>
                                     </div>
                                     <div class="price__item">
-                                        <dt class="price__item-ps4">3 суток</dt>
-                                        <dd class="price__item-ps4 bold4">2100 ₽</dd>
+                                        <dt class="price__item-ps4">Третьи сутки</dt>
+                                        <dd class="price__item-ps4 bold4">600 ₽</dd>
                                     </div>
                                     <div class="price__item">
                                         <dt class="price__item-ps4">Неделя </dt>
@@ -239,50 +426,50 @@
                             </article>
                             <article class="price__card">
                                 <picture>
-                                    <source srcset="images/catalog/ps5.webp" type="image/webp">
+                                    <!-- <source srcset="images/catalog/ps5.webp" type="image/webp"> -->
                                     <source srcset="images/catalog/ps5.png" type="image/png">
                                     <img class="price__img-ps5" src="images/catalog/ps5.png" alt="PlayStation 5">
                                 </picture>
                                 <h3 class="price__title"> Игровая приставка Sony PlayStation 5</h3>
                                 <dl class="price__list">
                                     <div class="price__item">
-                                        <dt class="price__item-ps5">1 сутки</dt>
+                                        <dt class="price__item-ps5">Первые сутки</dt>
+                                        <dd class="price__item-ps5 bold4">1600 ₽</dd>
+                                    </div>
+                                    <div class="price__item">
+                                        <dt class="price__item-ps5">Вторые сутки</dt>
                                         <dd class="price__item-ps5 bold4">1400 ₽</dd>
                                     </div>
                                     <div class="price__item">
-                                        <dt class="price__item-ps5">2 сутки</dt>
-                                        <dd class="price__item-ps5 bold4">2600 ₽</dd>
-                                    </div>
-                                    <div class="price__item">
-                                        <dt class="price__item-ps5">3 суток</dt>
-                                        <dd class="price__item-ps5 bold4">3600 ₽</dd>
+                                        <dt class="price__item-ps5">Третьи сутки</dt>
+                                        <dd class="price__item-ps5 bold4">1200 ₽</dd>
                                     </div>
                                     <div class="price__item">
                                         <dt class="price__item-ps5">Неделя </dt>
-                                        <dd class="price__item-ps5 bold4">5950 ₽</dd>
+                                        <dd class="price__item-ps5 bold4">8000 ₽</dd>
                                     </div>
                                 </dl>
                                 <BUTTON class="price__button" aria-label="Забронировать PlayStation 5">ЗАБРОНИРОВАТЬ</BUTTON>
                             </article>
                             <article class="price__card">
                                 <picture>
-                                    <source srcset="images/catalog/vr2.webp" type="image/webp">
+                                    <!-- <source srcset="images/catalog/vr2.webp" type="image/webp"> -->
                                     <source srcset="images/catalog/vr2.png" type="image/png">
                                     <img class="price__img-vr2" src="images/catalog/vr2.png" alt="PlayStation VR 2">
                                 </picture>
                                 <h3 class="price__title"> Очки виртуальной реальности PS VR2</h3>
                                 <dl class="price__list">
                                     <div class="price__item">
-                                        <dt class="price__item-vr2">1 сутки</dt>
+                                        <dt class="price__item-vr2">Первые сутки</dt>
                                         <dd class="price__item-vr2 bold4">2000 ₽</dd>
                                     </div>
                                     <div class="price__item">
-                                        <dt class="price__item-vr2">2 сутки</dt>
-                                        <dd class="price__item-vr2 bold4">3000 ₽</dd>
+                                        <dt class="price__item-vr2">Вторые сутки</dt>
+                                        <dd class="price__item-vr2 bold4">1000 ₽</dd>
                                     </div>
                                     <div class="price__item">
-                                        <dt class="price__item-vr2">3 суток</dt>
-                                        <dd class="price__item-vr2 bold4">3600 ₽</dd>
+                                        <dt class="price__item-vr2">Третьи сутки</dt>
+                                        <dd class="price__item-vr2 bold4">6600 ₽</dd>
                                     </div>
                                     <div class="price__item">
                                         <dt class="price__item-vr2">Неделя </dt>
@@ -296,7 +483,16 @@
                 </section>
                 <section class="body__games" id="games" aria-labelledby="games-heading">
                     <div class="container">
-                        <h2 class="tittle__games">Более 500 игр</h2>
+                        <div class="games__heading">
+    <h2 class="tittle__games">
+        Более <span>500</span> игр
+    </h2>
+
+    <p class="games__description">
+        Хиты, эксклюзивы PlayStation, новинки и классика —
+        большая библиотека на любой вкус
+    </p>
+</div>
                         <div class="games__container">
                             <figure class="games__game">
                                 <picture class="picture">
@@ -459,144 +655,436 @@
                                 <figcaption class="games__game-name">Metro Exodus</figcaption>
                             </figure >
                         </div>
-                        <button class="games__show-more" id="showMoreBtn" aria-expanded="false">Показать еще </button>
+                        
+<button
+    class="games__show-more"
+    id="showMoreBtn"
+    type="button"
+    aria-expanded="false"
+>
+    <!-- Иконка геймпада -->
+    <svg
+        class="games__button-icon"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+    >
+        <path d="M6.5 8h11a4 4 0 0 1 3.9 3.1l1 5.1a2.5 2.5 0 0 1-4.1 2.4l-2.4-2.1H8.1l-2.4 2.1a2.5 2.5 0 0 1-4.1-2.4l1-5.1A4 4 0 0 1 6.5 8Z"/>
+        <path d="M7 11v4M5 13h4"/>
+        <circle cx="16" cy="11.5" r="0.8" fill="currentColor" stroke="none"/>
+        <circle cx="18.5" cy="14" r="0.8" fill="currentColor" stroke="none"/>
+    </svg>
+
+    <!-- Текст кнопки -->
+    <span class="games__button-text">
+        Показать ещё
+    </span>
+
+    <!-- Стрелка вниз -->
+    <svg
+        class="games__button-arrow"
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+    >
+        <path d="M12 4v16"/>
+        <path d="m5 13 7 7 7-7"/>
+    </svg>
+</button>
+
                     </div>
                 </section>
-                <section class="body__ruls" id="aboutus" aria-labelledby="process-heading">
-                    <div class="container">
-                        <h2 class="title__ruls">Как происходит Аренда</h2>
-                        <ol class="ruls__carta" aria-label="Шаги аренды 1-4">
-                            <li class="ruls__carta-item">
-                                <div class="carta__item-one">
-                                    <img class="test" src="ruls/Без имени-2.png" alt="Иконка телефона" width="120">
-                                </div>
-                                <div class="carta__item-two">
-                                    <p class="carta__text">
-                                        Связываетесь с нами по номеру телефона или оставляете заявку на сайте
-                                    </p>
-                                </div>
-                            </li>
-                            <!-- Шаг 2 -->
-                            <li class="ruls__carta-item">
-                                <div class="carta__item-one">
-                                    <img class="test" src="ruls/Без имени-3.png" alt="Иконка курьера" width="130">
-                                </div>
-                                <div class="carta__item-two">
-                                    <p class="carta__text">
-                                        За час вам звонит курьер и выезжает по адресу
-                                    </p>
-                                </div>
-                            </li>
-                            <!-- Шаг 3 -->
-                            <li class="ruls__carta-item">
-                                <div class="carta__item-one">
-                                    <img class="test test-1" src="ruls/Без имени-4.png" alt="Иконка договора" width="132">
-                                </div>
-                                <div class="carta__item-two">
-                                    <p class="carta__text">
-                                        Убеждаемся, что мы подходим друг другу и заключаем договор в двух экземплярах
-                                    </p>
-                                </div>
-                            </li>
-                            <!-- Шаг 4 -->
-                            <li class="ruls__carta-item">
-                                <div class="carta__item-one">
-                                    <img class="test test-2" src="ruls/Без имени-5.png" alt="Иконка подключения приставки" width="130">
-                                </div>
-                                <div class="carta__item-two">
-                                    <p class="carta__text">
-                                        Подключаем приставку и обучаем пользоваться
-                                    </p>
-                                </div>
-                            </li>
-                        </ol>
-                        <!-- Второй список для шагов 5-7 -->
-                        <ol class="ruls__carta1" aria-label="Шаги аренды 5-7" start="5">
-                            <!-- Шаг 5 -->
-                            <li class="ruls__carta-item">
-                                <div class="carta__item-one">
-                                    <img class="test" src="ruls/Без имени-6.png" alt="Иконка использования приставки" width="130">
-                                </div>
-                                <div class="carta__item-two">
-                                    <p class="carta__text">
-                                        Пользуетесь приставкой! Поможем и подскажем, если возникнут трудности
-                                    </p>
-                                </div>
-                            </li>
-                            <!-- Шаг 6 -->
-                            <li class="ruls__carta-item">
-                                <div class="carta__item-one">
-                                    <img class="test test-3" src="ruls/Без имени-7.png" alt="Иконка проверки оборудования" width="130">
-                                </div>
-                                <div class="carta__item-two">
-                                    <p class="carta__text">
-                                        Проверяем оборудование на отсутствие дефектов. Пожалуйста, не отключайте приставку к приезду курьера
-                                    </p>
-                                </div>
-                            </li>
-                            <!-- Шаг 7 -->
-                            <li class="ruls__carta-item">
-                                <div class="carta__item-one">
-                                    <img class="test" src="ruls/Без имени-8.png" alt="Иконка завершения аренды" width="130">
-                                </div>
-                                <div class="carta__item-two">
-                                    <p class="carta__text">
-                                        Завершение аренды и возврат оборудования. Если хотите продлить, сообщите нам об этом
-                                    </p>
-                                </div>
-                            </li>
-                        </ol>
-                    </div>
-                </section>
-                <section class="body__contact" aria-labelledby="contact-heading">
-                    <div class="container">
-                        <div class="contact__flex">
-                            <h2 id="contact-heading" class="contact__title">Номер для бронирования</h2>
-                            <a href="tel:+79955371240" class="contact__number" alt="contact number">8 (995) 537-12-40</a>
-                            <p class="contact__description">
-                                Или воспользуйтесь VK ботом для быстрой заявки
-                            </p>
-                            <a href="https://vk.me/playstation_home?"  class="contact__button-bot" target="_blank" rel="noopener noreferrer">
-                                Быстрое бронирование VK
-                            </a> 
-                            <address class="contact__address">
-                                <img src="shapka/address.svg" alt="address" width="40px">
-                                <span class="contact_address-text">
-                                    г. Тверь, ул. 1-я Силикатная, дом 7
-                                </span>
-                            </address>
-                        </div>
-                    </div>
-                </section>
-            </main>
-            <footer class="footer " role="contentinfo">
-                <div class="container">
-                    <div class="footer__flex">
-                        <div class="footer__left">
-                            <h3 class="footer__left-text"> Возник вопрос?  Напишите нам о нем!</h3>
-                            <div class="footer__left-message">
-                                <a href="https://wa.me/79040271240" target="_blank" rel="noopener noreferrer" aria-label="Написать в WhatsApp">
-                                    <img class="footer__left-whatsap" src="footer/whatsapp.svg" alt="иконка WhatsApp" width="35px">
-                                <a href="https://t.me/PsHomeTver" target="_blank" rel="noopener noreferrer" aria-label="Написать в Telegram">
-                                    <img class="footer__left-telegram" src="footer/telegram.svg" alt="иконка telegram" width="35px" ></a>
-                            </div>
-                        </div>
-                        <div class="footer__right">
-                            <h3 class="footer__right-text">
-                                Подписывайтесь на нас в соцсетях <br> и следите за новостями
-                            </h3>
-                            <div class="footer__right-social">
-                                <a href="https://vk.com/playstation_home" target="_blank" rel="noopener noreferrer" aria-label="Мы ВКонтакте">
-                                <img src="footer/vk.svg" alt="иконка VK" width="40px">
-                                </a>
-                                <a href="https://www.youtube.com/@PsHomeTver" target="_blank" rel="noopener noreferrer" aria-label="Наш YouTube канал">
-                                <img src="footer/youtube.png" alt="иконка youtube" width="40px">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                
+<section class="body__ruls" id="aboutus" aria-labelledby="process-heading">
+    <div class="container">
+        <div class="ruls__heading">
+            <h2 class="title__ruls" id="process-heading">
+                Как проходит <span>аренда</span>
+            </h2>
+            <p class="ruls__subtitle">
+                Всего 7 простых шагов — от заявки до возврата приставки
+            </p>
+        </div>
+
+        <ol class="ruls__steps">
+            
+<li class="ruls__step">
+    <span class="ruls__number">1</span>
+
+    <div class="ruls__icon">
+        <img src="ruls/Без имени-2.png" alt="Заявка по телефону">
+    </div>
+
+    <div class="ruls__content">
+        <h3>Оставляете заявку</h3>
+        <p>
+            Позвоните нам или оставьте заявку на сайте.
+            Поможем выбрать приставку и согласуем время доставки.
+        </p>
+    </div>
+</li>
+
+
+            <li class="ruls__step">
+                <span class="ruls__number">2</span>
+                <div class="ruls__icon">
+                    <img src="ruls/Без имени-3.png" alt="" width="130">
                 </div>
-            </footer>
+                <div class="ruls__content">
+                    <h3>Доставляем приставку</h3>
+                    <p>Курьер свяжется с вами перед выездом и привезёт приставку по указанному адресу.</p>
+                </div>
+            </li>
+
+            <li class="ruls__step">
+                <span class="ruls__number">3</span>
+                <div class="ruls__icon">
+                    <img src="ruls/Без имени-4.png" alt="" width="130">
+                </div>
+                <div class="ruls__content">
+                    <h3>Оформляем аренду</h3>
+                    <p>При передаче приставки проверяем комплектацию и заключаем договор аренды.</p>
+                </div>
+            </li>
+
+            <li class="ruls__step">
+                <span class="ruls__number">4</span>
+                <div class="ruls__icon">
+                    <img src="ruls/Без имени-5.png" alt="" width="130">
+                </div>
+                <div class="ruls__content">
+                    <h3>Подключаем и настраиваем</h3>
+                    <p>Подключим приставку к телевизору, настроим её и покажем, как пользоваться.</p>
+                </div>
+            </li>
+
+            <li class="ruls__step">
+                <span class="ruls__number">5</span>
+                <div class="ruls__icon">
+                    <img src="ruls/Без имени-6.png" alt="" width="130">
+                </div>
+                <div class="ruls__content">
+                    <h3>Наслаждаетесь играми</h3>
+                    <p>Играйте в любимые игры! Если возникнут вопросы или трудности, мы всегда на связи.</p>
+                </div>
+            </li>
+
+            <li class="ruls__step">
+                <span class="ruls__number">6</span>
+                <div class="ruls__icon">
+                    <img src="ruls/Без имени-7.png" alt="" width="130">
+                </div>
+                <div class="ruls__content">
+                    <h3>Проверяем оборудование</h3>
+                    <p>По окончании аренды проверяем исправность приставки и комплектность оборудования.</p>
+                </div>
+            </li>
+
+            <li class="ruls__step">
+                <span class="ruls__number">7</span>
+                <div class="ruls__icon">
+                    <img src="ruls/Без имени-8.png" alt="" width="130">
+                </div>
+                <div class="ruls__content">
+                    <h3>Завершаем аренду</h3>
+                    <p>Возвращаете приставку курьеру. Если хотите играть дольше, заранее согласуем продление аренды.</p>
+                </div>
+            </li>
+        </ol>
+    </div>
+</section>
+
+                
+
+
+<section class="booking-neon" id="booking">
+
+    <svg class="booking-neon__waves"
+         viewBox="0 0 1440 440"
+         preserveAspectRatio="none"
+         aria-hidden="true">
+
+        <defs>
+            <linearGradient id="booking-neon-top">
+                <stop offset="0%" stop-color="#368cff"/>
+                <stop offset="35%" stop-color="#bb42ff"/>
+                <stop offset="100%" stop-color="#593bff" stop-opacity="0"/>
+            </linearGradient>
+
+            <linearGradient id="booking-neon-bottom">
+                <stop offset="0%" stop-color="#328bff"/>
+                <stop offset="30%" stop-color="#7547ff"/>
+                <stop offset="55%" stop-color="#c442ff"/>
+                <stop offset="80%" stop-color="#ffae00"/>
+                <stop offset="100%" stop-color="#ff862e" stop-opacity="0.3"/>
+            </linearGradient>
+
+            <filter id="booking-neon-glow"
+                    x="-50%" y="-100%"
+                    width="200%" height="300%">
+                <feGaussianBlur stdDeviation="9"/>
+            </filter>
+        </defs>
+
+        <path
+            d="M-30 145 C130 110 210 -20 530 20"
+            fill="none"
+            stroke="url(#booking-neon-top)"
+            stroke-width="12"
+            opacity="0.65"
+            filter="url(#booking-neon-glow)"
+        />
+
+        <path
+            d="M-30 145 C130 110 210 -20 530 20"
+            fill="none"
+            stroke="url(#booking-neon-top)"
+            stroke-width="2"
+        />
+
+        <path
+            d="M-30 370 C230 240 420 410 700 405 S1150 275 1470 325"
+            fill="none"
+            stroke="url(#booking-neon-bottom)"
+            stroke-width="14"
+            opacity="0.65"
+            filter="url(#booking-neon-glow)"
+        />
+
+        <path
+            d="M-30 370 C230 240 420 410 700 405 S1150 275 1470 325"
+            fill="none"
+            stroke="url(#booking-neon-bottom)"
+            stroke-width="2.5"
+        />
+
+    </svg>
+
+    <div class="booking-neon__inner">
+
+        <div class="booking-neon__heading">
+
+            <h2 class="booking-neon__title">
+                Забронируйте приставку
+                <span>удобным способом</span>
+            </h2>
+
+        </div>
+
+        <div class="booking-neon__buttons">
+
+            <a href="tel:+79955371240"
+               class="booking-neon__button booking-neon__phone">
+
+                <span class="booking-neon__icon booking-neon__icon--phone">
+
+                    <svg viewBox="0 0 24 24"
+                         fill="currentColor"
+                         aria-hidden="true">
+
+                        <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.56 3.57.56a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02z"/>
+
+                    </svg>
+
+                </span>
+
+                <span class="booking-neon__text">
+
+                    <span class="booking-neon__label">
+                        Номер для бронирования
+                    </span>
+
+                    <strong class="booking-neon__number">
+                        8 (995) 537-12-40
+                    </strong>
+
+                </span>
+
+            </a>
+
+            <a href="https://vk.me/playstation_home"
+               class="booking-neon__button booking-neon__vk"
+               target="_blank"
+               rel="noopener noreferrer">
+
+                <span class="booking-neon__icon booking-neon__icon--vk">
+
+                    <svg viewBox="0 0 28 26"
+                         fill="currentColor"
+                         aria-hidden="true">
+
+                        <path d="M15.07 20.25c-8.2 0-12.87-5.62-13.07-14.97h4.11c.14 6.86 3.16 9.77 5.55 10.37V5.28h3.87v5.92c2.36-.25 4.84-2.95 5.68-5.92h3.87c-.64 3.66-3.34 6.36-5.26 7.47 1.92.9 5 3.26 6.18 7.5h-4.26c-.92-2.85-3.2-5.05-6.21-5.35v5.35z"/>
+
+                    </svg>
+
+                </span>
+
+                <span class="booking-neon__text">
+
+                    <strong class="booking-neon__vk-title">
+                        Чат-бот ВКонтакте
+                    </strong>
+
+                    <span class="booking-neon__label">
+                        Быстрая заявка и консультация
+                    </span>
+
+                </span>
+
+                <svg class="booking-neon__arrow"
+                     viewBox="0 0 24 24"
+                     fill="none"
+                     aria-hidden="true">
+
+                    <path d="M3 12H21M14 5L21 12L14 19"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"/>
+
+                </svg>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+            </main>
+            <footer class="pshome-footer" role="contentinfo">
+    <div class="container">
+
+        <div class="pshome-footer__main">
+
+            <div class="pshome-footer__brand">
+
+                <a href="/" class="pshome-footer__logo">
+                    <img src="images/logo.png"
+                         alt="PSHOME"
+                         width="44"
+                         height="44">
+
+                    <span>PS<span>HOME</span></span>
+                </a>
+
+                <p class="pshome-footer__description">
+                    Аренда игровых приставок PlayStation
+                    с доставкой
+                </p>
+
+                <div class="pshome-footer__city">
+                    <svg viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="1.8">
+                        <path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z"/>
+                        <circle cx="12" cy="10" r="2.5"/>
+                    </svg>
+
+                    <span>г. Тверь</span>
+                </div>
+
+            </div>
+
+            <div class="pshome-footer__contacts">
+
+                <h3>Связаться с нами</h3>
+
+                <a class="pshome-footer__phone"
+                   href="tel:+79955371240">
+
+                    <svg viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="1.8"
+                         stroke-linecap="round"
+                         stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 11.19 18.83 19.5 19.5 0 0 1 5.19 12.83 19.8 19.8 0 0 1 2.1 4.18 2 2 0 0 1 4.09 2h3a2 2 0 0 1 2 1.72l.7 3a2 2 0 0 1-.57 2.11L7.95 10.1a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.57l3 .7A2 2 0 0 1 22 16.92Z"/>
+                    </svg>
+
+                    8 (995) 537-12-40
+                </a>
+
+                <div class="pshome-footer__icons">
+
+                    <a href="https://t.me/PsHomeTver"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="Telegram">
+                        <img src="footer/telegram.svg"
+                             alt="Telegram">
+                    </a>
+
+                    <a href="https://wa.me/79040271240"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="WhatsApp">
+                        <img src="footer/whatsapp.svg"
+                             alt="WhatsApp">
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="pshome-footer__social">
+
+                <h3>Мы в социальных сетях</h3>
+
+                <p>Следите за новостями и акциями</p>
+
+                <div class="pshome-footer__icons">
+
+                    <a href="https://vk.com/playstation_home"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="ВКонтакте">
+                        <img src="footer/vk.svg"
+                             alt="ВКонтакте">
+                    </a>
+
+                    <a href="https://www.youtube.com/@PsHomeTver"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="YouTube">
+                        <img src="footer/youtube.png"
+                             alt="YouTube">
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="pshome-footer__bottom">
+
+            <p>© 2026 PSHOME. Все права защищены.</p>
+
+            <a href="/privacy.html">
+                Политика конфиденциальности
+            </a>
+
+        </div>
+
+    </div>
+</footer>
     </div>
     <script src="JS/script.js"></script>
     <!-- Модальное окно -->
