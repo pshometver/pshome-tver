@@ -3863,3 +3863,384 @@ body .booking-neon__buttons::after {
         transform: scale(1.25);
     }
 }
+body .modal {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    height: 100dvh;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background: rgba(4, 6, 18, .82);
+    -webkit-backdrop-filter: blur(7px);
+    backdrop-filter: blur(7px);
+}
+
+body .modal[style*="display: block"] {
+    display: flex !important;
+}
+
+.modal .modal__content {
+    position: relative;
+    flex-shrink: 0;
+    width: min(100%, 470px);
+    max-width: none;
+    max-height: none;
+    margin: auto;
+    padding: 48px 32px 32px;
+    box-sizing: border-box;
+    overflow: hidden;
+    border: 1px solid transparent;
+    border-radius: 26px;
+    background:
+        radial-gradient(ellipse at 0% 45%, rgba(25, 96, 255, .22), transparent 58%) padding-box,
+        radial-gradient(ellipse at 100% 0%, rgba(155, 33, 255, .24), transparent 60%) padding-box,
+        linear-gradient(135deg, #101c42, #10142e 48%, #211039) padding-box,
+        linear-gradient(135deg, #30c8ff, #6471ff 48%, #c13cff) border-box;
+    box-shadow:
+        -5px 0 30px rgba(34, 111, 255, .24),
+        5px 0 30px rgba(160, 41, 255, .25);
+    color: #f7f8ff;
+    font-family: Inter, Arial, sans-serif;
+}
+
+.modal .rental-modal {
+    width: min(100%, 860px);
+    padding: 48px 30px 32px;
+}
+
+.modal .rental-form {
+    display: grid;
+    grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+    align-items: center;
+    gap: 22px 30px;
+}
+
+.modal .rental-info {
+    display: contents;
+}
+
+.modal .rental-image {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    align-self: center;
+}
+
+.modal .rental-image picture {
+    display: block;
+    width: 100%;
+}
+
+.modal .rental-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    border-radius: 0;
+    -webkit-mask-image: radial-gradient(
+        ellipse 75% 75% at center,
+        #000 45%,
+        transparent 100%
+    );
+    mask-image: radial-gradient(
+        ellipse 75% 75% at center,
+        #000 45%,
+        transparent 100%
+    );
+}
+
+.modal .rental-title,
+.modal .modal__title {
+    position: relative;
+    margin: 0;
+    padding-left: 22px;
+    background: none;
+    color: #f7f8ff;
+    -webkit-text-fill-color: #f7f8ff;
+    font-size: clamp(24px, 2.8vw, 34px);
+    font-weight: 800;
+    line-height: 1.15;
+    text-align: left;
+}
+
+.modal .rental-title {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: end;
+}
+
+.modal .rental-title::before,
+.modal .modal__title::before {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: 4px;
+    height: 42px;
+    border-radius: 6px;
+    background: #ffcc20;
+    transform: rotate(17deg);
+    box-shadow: 0 0 12px rgba(255, 189, 8, .65);
+}
+
+.modal .modal__close {
+    z-index: 5;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(139, 132, 255, .3);
+    border-radius: 50%;
+    background: rgba(99, 79, 192, .2);
+    color: #fff;
+    font-size: 27px;
+    line-height: 1;
+    transition: background .2s, color .2s;
+}
+
+.modal .modal__close:hover {
+    color: #ffcf28;
+    background: rgba(122, 96, 255, .35);
+}
+
+.modal .modal__form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    min-width: 0;
+    margin: 24px 0 0;
+}
+
+.modal .rental-form .modal__form {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: start;
+    margin: 0;
+}
+
+.modal .form__group {
+    min-width: 0;
+}
+
+.modal .form__label {
+    color: #f7f8ff;
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 8px;
+}
+
+.modal .form__label::after {
+    color: #ffbd08;
+}
+
+#applicationModal .form__label::after {
+    content: none;
+}
+
+.modal .form__input {
+    width: 100%;
+    min-width: 0;
+    min-height: 52px;
+    box-sizing: border-box;
+    padding: 13px 16px;
+    border: 1px solid #707eff;
+    border-radius: 13px;
+    background: linear-gradient(120deg, #18264d, #251b48);
+    color: #fff;
+    font: 500 16px/1.4 Inter, Arial, sans-serif;
+    box-shadow: inset 0 0 14px rgba(108, 90, 255, .09);
+    transition: border-color .2s, box-shadow .2s;
+}
+
+.modal .form__input::placeholder {
+    color: #9aa6c6;
+}
+
+.modal .form__input:focus {
+    outline: none;
+    transform: none;
+    border-color: #ffbd08;
+    box-shadow: 0 0 0 2px rgba(255, 189, 8, .18);
+}
+
+.modal .form__input:user-invalid {
+    border-color: #ff697e;
+}
+
+.modal .form__checkbox {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    padding: 14px;
+    border: 1px solid rgba(115, 126, 255, .25);
+    border-radius: 13px;
+    background: rgba(89, 85, 196, .13);
+    color: #d5dcf3;
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+.modal .form__checkbox:hover {
+    background: rgba(89, 85, 196, .20);
+    border-color: rgba(115, 126, 255, .5);
+}
+
+.modal .form__checkbox input[type="checkbox"] {
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.modal .checkmark {
+    width: 21px;
+    height: 21px;
+    box-sizing: border-box;
+    border: 1px solid #8195ff;
+    border-radius: 6px;
+    background: #151e42;
+    box-shadow: 0 0 7px rgba(92, 113, 255, .28);
+}
+
+.modal .form__checkbox input[type="checkbox"]:checked + .checkmark {
+    background: #ffbd08;
+    border-color: #ffbd08;
+}
+
+.modal .form__checkbox input[type="checkbox"]:checked + .checkmark::after {
+    color: #101524;
+}
+
+.modal .form__checkbox input[type="checkbox"]:focus-visible + .checkmark {
+    outline: 2px solid #ffbd08;
+    outline-offset: 3px;
+}
+
+.modal .checkbox-text {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.modal .privacy-link,
+.modal .privacy-link:hover {
+    color: #ffbd08;
+}
+
+.modal .privacy-link:hover {
+    border-bottom-color: #ffbd08;
+}
+
+.modal .form__button {
+    width: 100%;
+    min-height: 54px;
+    box-sizing: border-box;
+    padding: 14px 18px;
+    border: 1px solid #ffd43b;
+    border-radius: 30px;
+    background: linear-gradient(110deg, #ffdc20, #ffab00);
+    color: #101524;
+    font: 800 17px/1.3 Inter, Arial, sans-serif;
+    letter-spacing: 0;
+    box-shadow: 0 0 17px rgba(255, 189, 8, .30);
+    transition: transform .2s, box-shadow .2s;
+}
+
+.modal .form__button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 23px rgba(255, 189, 8, .48);
+}
+
+.modal .form__button:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+}
+
+.modal .form__button.loading .button-loading {
+    display: inline !important;
+}
+
+.modal .form__footer {
+    margin: 0;
+    color: #aab5ce;
+    border-top: 1px solid rgba(125, 149, 255, .18);
+}
+
+@media (max-width: 700px) {
+    body .modal {
+        padding: 12px;
+    }
+
+    .modal .modal__content,
+    .modal .rental-modal {
+        width: min(100%, 420px);
+        padding: 46px 20px 24px;
+        border-radius: 23px;
+    }
+
+    .modal .rental-form {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+    }
+
+    .modal .rental-title {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .modal .rental-title,
+    .modal .modal__title {
+        font-size: clamp(22px, 6.5vw, 28px);
+    }
+
+    .modal .rental-image {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .modal .rental-image img {
+        height: clamp(145px, 54vw, 240px);
+    }
+
+    .modal .rental-form .modal__form {
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    .modal .modal__form {
+        gap: 15px;
+    }
+
+    .modal .form__button {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 350px) {
+    .modal .modal__content,
+    .modal .rental-modal {
+        padding-right: 14px;
+        padding-left: 14px;
+    }
+
+    .modal .form__checkbox {
+        padding: 10px;
+        font-size: 13px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .modal .modal__content {
+        animation: none;
+    }
+
+    .modal .form__button:hover {
+        transform: none;
+    }
+}
